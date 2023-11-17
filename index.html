@@ -103,6 +103,9 @@
 							<div class="col-12">
 								<ul class="actions">
 									<li><a href="#" class="button icon solid fa-file">Tell Me More</a></li>
+									<li><a href="#" class="button icon solid fa-file" onclick="openKakao();">카카오맵 바로가기</a></li>
+									<li><a href="#" class="button icon solid fa-file" onclick="openNaver();">네이버맵 바로가기</a></li>
+									<li><a href="#" class="button icon solid fa-file" onclick="openTmap();">T맵 바로가기</a></li>
 								</ul>
 							</div>
 						</div>
@@ -362,6 +365,33 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+			<script>
+				const LAT = 37.32683756100763;
+				const LNG = 126.94104090279565;
+				
+				const openKakao = () => {
+					try{ 
+						window.location = `kakaomap://route?ep=${LAT},${LNG}&by=CAR`;
+					} catch {
+						window.open(`https://map.kakao.com/link/to/%EC%98%A4%EB%A6%AC%EC%A7%84,${LAT},${LNG}`, "_blank")
+					}
+				}
 
+				const openNaver = () => {
+					try{ 
+						window.location = `nmap://route/car?dlat=${LAT}&dlng=${LNG}&appname=com.example.myApp`;
+					} catch {
+						window.open(`https://map.kakao.com/link/to/%EC%98%A4%EB%A6%AC%EC%A7%84,${LAT},${LNG}`, "_blank")
+					}
+				}
+				const openTmap = () => {
+					try{ 
+						window.location = `tmap://route?rGoName=%EC%98%A4%EB%A6%AC%EC%A7%84&rGoX=${LNG}&rGoY=${LAT}`;
+					} catch {
+						window.open(`https://map.kakao.com/link/to/%EC%98%A4%EB%A6%AC%EC%A7%84,${LAT},${LNG}`, "_blank")
+					}
+				}
+
+			</script>
 	</body>
 </html>
