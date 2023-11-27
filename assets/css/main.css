@@ -1909,7 +1909,7 @@ input, select, textarea {
 	}
 
 		#header > .container {
-			padding: 14em 0 7em 0;
+			padding: 9em 0 5em 0;
 			border-bottom: solid 2px #e5e5e5;
 			box-shadow: inset 0px -8px 0px 0px #fff, inset 0px -10px 0px 0px #e5e5e5;
 		}
@@ -1937,78 +1937,88 @@ input, select, textarea {
 			text-align: center;
 		}
 
+	#logo {
+		display: none;
+	}
+
 /* Nav */
 
 	#nav {
+		display: flex;
+		justify-content: space-evenly;
+		align-items: center;
 		position: absolute;
 		top: 3em;
 		left: 0;
 		width: 100%;
 		cursor: default;
 	}
-
-		#nav > ul > li {
-			display: inline-block;
-			padding-right: 2em;
+		#nav > ul {
+			margin-bottom: 0em;
 		}
 
-			#nav > ul > li:last-child {
-				padding-right: 0;
+			#nav > ul > li {
+				display: inline-block;
+				padding-right: 2em;
 			}
 
-			#nav > ul > li > a {
-				border: 0;
-				text-decoration: none;
-				text-transform: uppercase;
-				font-weight: 400;
-				color: #777;
-				outline: 0;
-				display: block;
-			}
-
-				#nav > ul > li > a:before {
-					display: inline-block;
-					background: #878787;
-					color: #e4e4e4;
-					width: 2.25em;
-					font-size: 0.8em;
-					height: 2.25em;
-					border-radius: 2.25em;
-					line-height: 2.1em;
-					text-align: center;
-					box-shadow: 0.125em 0.175em 0 0 rgba(0, 0, 0, 0.125);
-					margin-right: 0.75em;
-					-moz-transition: color 0.25s ease-in-out, background 0.25s ease-in-out;
-					-webkit-transition: color 0.25s ease-in-out, background 0.25s ease-in-out;
-					-o-transition: color 0.25s ease-in-out, background 0.25s ease-in-out;
-					-ms-transition: color 0.25s ease-in-out, background 0.25s ease-in-out;
-					transition: color 0.25s ease-in-out, background 0.25s ease-in-out;
+				#nav > ul > li:last-child {
+					padding-right: 0;
 				}
 
-				#nav > ul > li > a > span {
-					-moz-transition: color 0.25s ease-in-out;
-					-webkit-transition: color 0.25s ease-in-out;
-					-o-transition: color 0.25s ease-in-out;
-					-ms-transition: color 0.25s ease-in-out;
-					transition: color 0.25s ease-in-out;
-					font-size: 0.85em;
-					letter-spacing: 3px;
+				#nav > ul > li > a {
+					border: 0;
+					text-decoration: none;
+					text-transform: uppercase;
+					font-weight: 400;
+					color: #777;
+					outline: 0;
+					display: block;
 				}
 
-			#nav > ul > li > ul {
-				display: none;
-			}
+					#nav > ul > li > a:before {
+						display: inline-block;
+						background: #878787;
+						color: #e4e4e4;
+						width: 2.25em;
+						font-size: 0.8em;
+						height: 2.25em;
+						border-radius: 2.25em;
+						line-height: 2.1em;
+						text-align: center;
+						box-shadow: 0.125em 0.175em 0 0 rgba(0, 0, 0, 0.125);
+						margin-right: 0.75em;
+						-moz-transition: color 0.25s ease-in-out, background 0.25s ease-in-out;
+						-webkit-transition: color 0.25s ease-in-out, background 0.25s ease-in-out;
+						-o-transition: color 0.25s ease-in-out, background 0.25s ease-in-out;
+						-ms-transition: color 0.25s ease-in-out, background 0.25s ease-in-out;
+						transition: color 0.25s ease-in-out, background 0.25s ease-in-out;
+					}
 
-			#nav > ul > li.active > a:before,
-			#nav > ul > li:hover > a:before {
-				background: #ED786A;
-				color: #fff;
-			}
+					#nav > ul > li > a > span {
+						-moz-transition: color 0.25s ease-in-out;
+						-webkit-transition: color 0.25s ease-in-out;
+						-o-transition: color 0.25s ease-in-out;
+						-ms-transition: color 0.25s ease-in-out;
+						transition: color 0.25s ease-in-out;
+						font-size: 0.85em;
+						letter-spacing: 3px;
+					}
 
-			#nav > ul > li.active > a > span,
-			#nav > ul > li:hover > a > span {
-				color: #ED786A;
-			}
+				#nav > ul > li > ul {
+					display: none;
+				}
+
+				#nav > ul > li.active > a:before,
+				#nav > ul > li:hover > a:before {
+					background: #00569f;
+					color: #fff;
+				}
+
+				#nav > ul > li.active > a > span,
+				#nav > ul > li:hover > a > span {
+					color: #00569f;
+				}
 
 	.dropotron {
 		text-align: left;
@@ -2277,7 +2287,7 @@ input, select, textarea {
 		/* Header */
 
 			#header > .container {
-				padding: 12em 0 5em 0;
+				padding: 7em 0 4em 0;
 			}
 
 			#header h1 {
@@ -2349,6 +2359,10 @@ input, select, textarea {
 
 			#header > .container {
 				padding: 10em 0 7em 0;
+			}
+
+			#logo {
+				display: block;
 			}
 
 		/* Nav */
