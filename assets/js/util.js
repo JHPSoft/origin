@@ -29,6 +29,7 @@
 			);
 
 		});
+		b.shift();
 
 		return b.join('');
 

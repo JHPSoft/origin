@@ -11,6 +11,7 @@
 		<meta lang="KO" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" href="assets/css/toastr.min.css" />
 		<link rel="apple-touch-icon" sizes="57x57" href="./images/favicon/apple-icon-57x57.png">
 		<link rel="apple-touch-icon" sizes="60x60" href="./images/favicon/apple-icon-60x60.png">
 		<link rel="apple-touch-icon" sizes="72x72" href="./images/favicon/apple-icon-72x72.png">
@@ -32,6 +33,9 @@
 			.logo-img {
 				max-height: 60px;
 			}
+			.logo-img.sm {
+				max-height: 40px;
+			}
 			.logo-text {
 				color: #00569f !important;
 				font-family: "Source Sans Pro";
@@ -39,6 +43,16 @@
 
 			#nav > a {
 				border-bottom-width: 0px;
+			}
+
+			.copy-element > span {
+				border-bottom: 1px solid rgba(255, 255, 255, 0);
+				transition: border .25s ease;
+			}
+
+			.copy-element > span:hover {
+				cursor: pointer;
+				border-color: #737373;
 			}
 		</style>
 	</head>
@@ -88,7 +102,6 @@
 									</li>
 								</ul>
 							</nav>
-
 					</div>
 				</section>
 
@@ -323,64 +336,30 @@
 			<!-- Footer -->
 				<section id="footer">
 					<div class="container">
-						<header>
+						<!-- <header>
 							<h2>Questions or comments? <strong>Get in touch:</strong></h2>
-						</header>
+						</header> -->
 						<div class="row">
-							<div class="col-6 col-12-medium">
-								<section>
-									<form method="post" action="#">
-										<div class="row gtr-50">
-											<div class="col-6 col-12-small">
-												<input name="name" placeholder="Name" type="text" />
-											</div>
-											<div class="col-6 col-12-small">
-												<input name="email" placeholder="Email" type="text" />
-											</div>
-											<div class="col-12">
-												<textarea name="message" placeholder="Message"></textarea>
-											</div>
-											<div class="col-12">
-												<a href="#" class="form-button-submit button icon solid fa-envelope">Send Message</a>
-											</div>
-										</div>
-									</form>
-								</section>
+							<div class="col-3 col-12-medium">
+								<img class="logo-img sm" src="./images/logo.png" alt="오리진로고">
 							</div>
-							<div class="col-6 col-12-medium">
+							<div class="col-9 col-12-medium">
 								<section>
-									<p>Erat lorem ipsum veroeros consequat magna tempus lorem ipsum consequat Phaselamet
-									mollis tortor congue. Sed quis mauris sit amet magna accumsan tristique. Curabitur
-									leo nibh, rutrum eu malesuada.</p>
+									<p>&lt;뭐라뭐라 설명할 내용이 있나요&gt;<br>이메일 주소 수정필요</p>
 									<div class="row">
-										<div class="col-6 col-12-small">
+										<div class="col-12 col-12-small">
 											<ul class="icons">
-												<li class="icon solid fa-home">
-													1234 Somewhere Road<br />
-													Nashville, TN 00000<br />
-													USA
+												<li class="icon solid fa-home copy-element">
+													<span class="copy-element" data-clipboard-action="copy" data-clipboard-text="경기 군포시 부곡동 1246 군포에이스더블유벨리 1027호" data-type="주소">경기 군포시 부곡동 1246 군포에이스더블유벨리 1027호</span>
 												</li>
-												<li class="icon solid fa-phone">
-													(000) 000-0000
+												<li class="icon solid fa-phone copy-element">
+													<span class="copy-element" data-clipboard-action="copy" data-clipboard-text="031-342-1202" data-type="전화번호">(031) 342-1202</span>
 												</li>
-												<li class="icon solid fa-envelope">
-													<a href="#">info@untitled.tld</a>
+												<li class="icon solid fa-fax copy-element">
+													<span class="copy-element" data-clipboard-action="copy" data-clipboard-text="031-342-1203" data-type="팩스번호">(031) 342-1203</span>
 												</li>
-											</ul>
-										</div>
-										<div class="col-6 col-12-small">
-											<ul class="icons">
-												<li class="icon brands fa-twitter">
-													<a href="#">@untitled</a>
-												</li>
-												<li class="icon brands fa-instagram">
-													<a href="#">instagram.com/untitled</a>
-												</li>
-												<li class="icon brands fa-dribbble">
-													<a href="#">dribbble.com/untitled</a>
-												</li>
-												<li class="icon brands fa-facebook-f">
-													<a href="#">facebook.com/untitled</a>
+												<li class="icon solid fa-envelope copy-element">
+													<span class="copy-element" data-clipboard-action="copy" data-clipboard-text="info@e-origin.co.kr" data-type="이메일">info@e-origin.co.kr</span>
 												</li>
 											</ul>
 										</div>
@@ -389,13 +368,7 @@
 							</div>
 						</div>
 					</div>
-					<div id="copyright" class="container">
-						<ul class="links">
-							<li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-						</ul>
-					</div>
 				</section>
-
 		</div>
 
 		<!-- Scripts -->
@@ -405,6 +378,9 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+			<script src="assets/js/glob.js"></script>
+			<script src="assets/js/toastr.min.js"></script>
+			<script src="assets/js/clipboard.min.js"></script>
 			<script>
 				const LAT = 37.32683756100763;
 				const LNG = 126.94104090279565;
@@ -436,6 +412,15 @@
 					}
 				}
 
+				$(document).ready(() => {
+					let clipboard = new ClipboardJS(".copy-element");
+					clipboard.on("success", (e) => {
+						let target = $(e.trigger);
+						let type = target.data("type");
+						
+						cAlert(4, "", type + " 복사 완료", {timeOut: 1000})
+					})
+				})
 			</script>
 	</body>
 </html>
