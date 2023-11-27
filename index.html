@@ -369,25 +369,29 @@
 				const LAT = 37.32683756100763;
 				const LNG = 126.94104090279565;
 				
+				const CheckMobile = () => {
+					return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+				}
+
 				const openKakao = () => {
-					try{ 
+					if(CheckMobile()) {
 						window.location = `kakaomap://route?ep=${LAT},${LNG}&by=CAR`;
-					} catch {
+					} else {
 						window.open(`https://map.kakao.com/link/to/%EC%98%A4%EB%A6%AC%EC%A7%84,${LAT},${LNG}`, "_blank")
 					}
 				}
 
 				const openNaver = () => {
-					try{ 
+					if(CheckMobile()) {
 						window.location = `nmap://route/car?dlat=${LAT}&dlng=${LNG}&appname=com.example.myApp`;
-					} catch {
+					} else {
 						window.open(`https://map.kakao.com/link/to/%EC%98%A4%EB%A6%AC%EC%A7%84,${LAT},${LNG}`, "_blank")
 					}
 				}
 				const openTmap = () => {
-					try{ 
+					if(CheckMobile()) {
 						window.location = `tmap://route?rGoName=%EC%98%A4%EB%A6%AC%EC%A7%84&rGoX=${LNG}&rGoY=${LAT}`;
-					} catch {
+					} else {
 						window.open(`https://map.kakao.com/link/to/%EC%98%A4%EB%A6%AC%EC%A7%84,${LAT},${LNG}`, "_blank")
 					}
 				}
