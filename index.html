@@ -80,75 +80,7 @@
 					</div>
 				</section>
 
-			<!-- Features -->
-				<section id="features">
-					<div class="container">
-						<header>
-							<h2>Gentlemen, behold! This is <strong>Strongly Typed</strong>!</h2>
-						</header>
-						<div class="row aln-center">
-							<div class="col-4 col-6-medium col-12-small">
-
-								<!-- Feature -->
-									<section>
-										<a href="#" class="image featured"><img src="images/pic01.jpg" alt="" /></a>
-										<header>
-											<h3>Okay, so what is this?</h3>
-										</header>
-										<p>This is <strong>Strongly Typed</strong>, a free, fully responsive site template
-										by <a href="http://html5up.net">HTML5 UP</a>. Free for personal and commercial use under the
-										<a href="http://html5up.net/license">CCA 3.0 license</a>.</p>
-									</section>
-
-							</div>
-							<div class="col-4 col-6-medium col-12-small">
-
-								<!-- Feature -->
-									<section>
-										<a href="#" class="image featured"><img src="images/pic02.jpg" alt="" /></a>
-										<header>
-											<h3>Nice! What is HTML5 UP?</h3>
-										</header>
-										<p><a href="http://html5up.net">HTML5 UP</a> is a side project of <a href="http://twitter.com/ajlkn">AJ’s</a> (= me).
-										I started it as a way to both test my responsive tools and sharpen up my coding
-										and design skills a bit.</p>
-									</section>
-
-							</div>
-							<div class="col-4 col-6-medium col-12-small">
-
-								<!-- Feature -->
-									<section>
-										<a href="#" class="image featured"><img src="images/pic03.jpg" alt="" /></a>
-										<header>
-											<h3>What's this built with?</h3>
-										</header>
-										<p><strong>Responsive Tools</strong> is a simple set of tools for building responsive
-										sites and apps. All of my templates at <a href="http://html5up.net">HTML5 UP</a> are built using these tools.</p>
-									</section>
-
-							</div>
-							<div class="col-12">
-								<ul class="actions">
-									<li><a href="#" class="button icon solid fa-file">Tell Me More</a></li>
-									<li><a href="#" class="button icon solid fa-file" onclick="openKakao();">카카오맵 바로가기</a></li>
-									<li><a href="#" class="button icon solid fa-file" onclick="openNaver();">네이버맵 바로가기</a></li>
-									<li><a href="#" class="button icon solid fa-file" onclick="openTmap();">T맵 바로가기</a></li>
-								</ul>
-							</div>
-						</div>
-					</div>
-				</section>
-
-			<!-- Banner -->
-				<section id="banner">
-					<div class="container">
-						<p>Use this space for <strong>profound thoughts</strong>.<br />
-						Or an enormous ad. Whatever.</p>
-					</div>
-				</section>
-
-			<!-- Main -->
+				<!-- Main -->
 				<section id="main">
 					<div class="container">
 						<div class="row">
@@ -159,10 +91,11 @@
 									<!-- Post -->
 										<article class="box post">
 											<header>
-												<h2><a href="#">I don’t want to say <strong>it’s the aliens</strong> ...<br />
-												but it’s the aliens.</a></h2>
+												<h2>
+													제목 1
+												</h2>
 											</header>
-											<a href="#" class="image featured"><img src="images/pic04.jpg" alt="" /></a>
+											<a href="#" class="image featured"><img src="images/StockSnap_OZPRB0FQZK.jpg" alt="" /></a>
 											<h3>I mean isn't it possible?</h3>
 											<p>Phasellus laoreet massa id justo mattis pharetra. Fusce suscipit
 											ligula vel quam viverra sit amet mollis tortor congue. Sed quis mauris
@@ -320,7 +253,14 @@
 							</div>
 							<div class="col-9 col-12-medium">
 								<section>
-									<p>&lt;뭐라뭐라 설명할 내용이 있나요&gt;<br>이메일 주소 수정필요</p>
+									<p>
+										<b>오리진 주식회사</b>
+									</p>
+									<p>
+										대표자 홍길동<br>
+										사업자등록번호: 123-12-07123<br>
+										(이메일 주소 수정필요)
+									</p>
 									<div class="row">
 										<div class="col-12 col-12-small">
 											<ul class="icons">
@@ -339,6 +279,9 @@
 											</ul>
 										</div>
 									</div>
+									<p>
+										Copyright ©2023 오리진 주식회사 All rights reserved.
+									</p>
 								</section>
 							</div>
 						</div>
@@ -357,36 +300,6 @@
 			<script src="assets/js/toastr.min.js"></script>
 			<script src="assets/js/clipboard.min.js"></script>
 			<script>
-				const LAT = 37.32683756100763;
-				const LNG = 126.94104090279565;
-				
-				const CheckMobile = () => {
-					return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-				}
-
-				const openKakao = () => {
-					if(CheckMobile()) {
-						window.location = `kakaomap://route?ep=${LAT},${LNG}&by=CAR`;
-					} else {
-						window.open(`https://map.kakao.com/link/to/%EC%98%A4%EB%A6%AC%EC%A7%84,${LAT},${LNG}`, "_blank")
-					}
-				}
-
-				const openNaver = () => {
-					if(CheckMobile()) {
-						window.location = `nmap://route/car?dlat=${LAT}&dlng=${LNG}&appname=com.example.myApp`;
-					} else {
-						window.open(`https://map.kakao.com/link/to/%EC%98%A4%EB%A6%AC%EC%A7%84,${LAT},${LNG}`, "_blank")
-					}
-				}
-				const openTmap = () => {
-					if(CheckMobile()) {
-						window.location = `tmap://route?rGoName=%EC%98%A4%EB%A6%AC%EC%A7%84&rGoX=${LNG}&rGoY=${LAT}`;
-					} else {
-						window.open(`https://map.kakao.com/link/to/%EC%98%A4%EB%A6%AC%EC%A7%84,${LAT},${LNG}`, "_blank")
-					}
-				}
-
 				$(document).ready(() => {
 					let clipboard = new ClipboardJS(".copy-element");
 					clipboard.on("success", (e) => {
