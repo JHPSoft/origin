@@ -31,6 +31,9 @@
 #nav > a {
 	border-bottom-width: 0px;
 }
+#nav > ul {
+	padding-left: 200px;
+}
 
 .copy-element > span {
 	border-bottom: 1px solid rgba(255, 255, 255, 0);
