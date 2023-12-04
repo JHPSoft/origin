@@ -31,6 +31,62 @@
 		<meta name="theme-color" content="#ffffff">
 		<link rel="stylesheet" href="assets/css/glob.css" />
 		<style>
+			/* Style the tab */
+			.tab {
+				overflow: auto;
+				border-bottom: 3px solid #00569f;
+				display: flex;
+			}
+
+			/* Style the buttons that are used to open the tab content */
+			.tab input.tab-links {
+				color: #00569f !important;
+				background-color: inherit;
+				float: left;
+				border: none;
+				outline: none;
+				cursor: pointer;
+				padding: 14px 16px;
+				transition: 0.3s;
+				box-shadow: inherit;
+				border-radius: 5px 5px 0px 0px;
+			}
+
+			/* Change background color of buttons on hover */
+			.tab input.tab-links:hover {
+				color: #fff !important;
+				background-color: #3F75C2;
+			}
+
+			/* Create an active/current tablink class */
+			.tab input.tab-links.active {
+				color: #fff !important;
+				background-color: #00569f;
+			}
+
+			/* Style the tab content */
+			.tab-content {
+				padding: 6px 12px;
+				border: 1px solid #ccc;
+				border-top: none;
+			}
+			.tab-content {
+				animation: fadeEffect .5s; /* Fading effect takes 1 second */
+			}
+
+			/* Go from zero to full opacity */
+			@keyframes fadeEffect {
+				from {opacity: 0;}
+				to {opacity: 1;}
+			}
+			@media screen and (max-width: 736px) {
+				input[type="button"], input[type="submit"], input[type="reset"], button, .button {
+					letter-spacing: 2px;
+					display: inline-block;
+					padding: 1em 0 1em 0;
+					width: initial;
+				}
+			}
 		</style>
 	</head>
 	<body class="homepage is-preload">
@@ -40,7 +96,7 @@
 					<div class="container">
 						<!-- Logo -->
 							<h1 id="logo">
-								<a href="./">
+								<a href="./index.html">
 									<img class="logo-img" src="./images/logo.png" alt="오리진로고">
 								</a>
 								<p class="logo-text text-origin-blue">Industrial Automation</p>
@@ -48,12 +104,12 @@
 
 						<!-- Nav -->
 							<nav id="nav">
-								<a href="./">
+								<a href="./index.html">
 									<img class="logo-img" src="./images/logo.png" alt="오리진로고">
 								</a>
 
 								<ul>
-									<li><a class="icon solid fa-home" href="./"><span>회사 소개</span></a></li>
+									<li><a class="icon solid fa-home" href="./index.html"><span>회사 소개</span></a></li>
 									<li>
 										<a href="#" class="icon fa-chart-bar"><span>대분류 1</span></a>
 										<ul>
@@ -72,7 +128,7 @@
 										</ul>
 									</li>
 									<li>
-										<a class="icon solid fa-cog" href="./"><span>대분류 2</span></a>
+										<a class="icon solid fa-cog" href="./index.html"><span>대분류 2</span></a>
 									</li>
 									<li>
 										<a class="icon solid fa-retweet" href="./"><span>대분류 3</span></a>
@@ -89,11 +145,49 @@
 						<!-- Content -->
 							<div id="content" class="col-12 col-12-medium imp-medium">
 								<h2 class="text-left text-origin-blue font-weight-900">
-									연혁
+									시공사례
 								</h2>
-								<p>
-									<img src="./images/history.png" alt="오리진 연혁" style="width:100%;">
-								</p>
+								<div>
+									<div class="tab">
+										<input type="button" class="tab-links active" onclick="changeTab(this);" data-target="contents-1" value="London">
+										<input type="button" class="tab-links" onclick="changeTab(this);" data-target="contents-2" value="Paris">
+										<input type="button" class="tab-links" onclick="changeTab(this);" data-target="contents-3" value="Tokyo">
+										<input type="button" class="tab-links" onclick="changeTab(this);" data-target="contents-4" value="Test1">
+										<input type="button" class="tab-links" onclick="changeTab(this);" data-target="contents-5" value="Test2">
+										<input type="button" class="tab-links" onclick="changeTab(this);" data-target="contents-6" value="Test3">
+									</div>
+									  
+									<!-- Tab content -->
+									<div class="tab-content" data-name="contents-1">
+										<h3>London</h3>
+										<p>London is the capital city of England.</p>
+									</div>
+									
+									<div class="tab-content dpn" data-name="contents-2">
+										<h3>Paris</h3>
+										<p>Paris is the capital of France.</p>
+									</div>
+									
+									<div class="tab-content dpn" data-name="contents-3">
+										<h3>Tokyo</h3>
+										<p>Tokyo is the capital of Japan.</p>
+									</div>
+									
+									<div class="tab-content dpn" data-name="contents-4">
+										<h3>Test1</h3>
+										<p>Test1 is the capital of Test1.</p>
+									</div>
+									
+									<div class="tab-content dpn" data-name="contents-5">
+										<h3>Test2</h3>
+										<p>Test2 is the capital of Test2.</p>
+									</div>
+									
+									<div class="tab-content dpn" data-name="contents-6">
+										<h3>Test3</h3>
+										<p>Test3 is the capital of Test3.</p>
+									</div>
+								</div>
 							</div>
 					</div>
 				</div>
@@ -146,5 +240,15 @@
 			<script src="assets/js/glob.js"></script>
 			<script src="assets/js/toastr.min.js"></script>
 			<script src="assets/js/clipboard.min.js"></script>
+			<script>
+				const changeTab = (elem) => {
+					let targetTab = $(elem).data("target");
+					$(".tab-content").addClass("dpn");
+					$(".tab-links").removeClass("active");
+
+					$(".tab-content[data-name='" + targetTab +  "']").removeClass("dpn");
+					$(".tab-links[data-target='" + targetTab +  "']").addClass("active");
+				}
+			</script>
 	</body>
 </html>
