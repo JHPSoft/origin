@@ -1,0 +1,254 @@
+<!DOCTYPE HTML>
+<!--
+	Strongly Typed by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>오리진 주식회사</title>
+		<meta charset="utf-8" />
+		<meta lang="KO" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" href="assets/css/toastr.min.css" />
+		<link rel="apple-touch-icon" sizes="57x57" href="./images/favicon/apple-icon-57x57.png">
+		<link rel="apple-touch-icon" sizes="60x60" href="./images/favicon/apple-icon-60x60.png">
+		<link rel="apple-touch-icon" sizes="72x72" href="./images/favicon/apple-icon-72x72.png">
+		<link rel="apple-touch-icon" sizes="76x76" href="./images/favicon/apple-icon-76x76.png">
+		<link rel="apple-touch-icon" sizes="114x114" href="./images/favicon/apple-icon-114x114.png">
+		<link rel="apple-touch-icon" sizes="120x120" href="./images/favicon/apple-icon-120x120.png">
+		<link rel="apple-touch-icon" sizes="144x144" href="./images/favicon/apple-icon-144x144.png">
+		<link rel="apple-touch-icon" sizes="152x152" href="./images/favicon/apple-icon-152x152.png">
+		<link rel="apple-touch-icon" sizes="180x180" href="./images/favicon/apple-icon-180x180.png">
+		<link rel="icon" type="image/png" sizes="192x192"  href="./images/favicon/android-icon-192x192.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="./images/favicon/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="96x96" href="./images/favicon/favicon-96x96.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="./images/favicon/favicon-16x16.png">
+		<link rel="manifest" href="./images/favicon/manifest.json">
+		<meta name="msapplication-TileColor" content="#ffffff">
+		<meta name="msapplication-TileImage" content="./images/favicon/ms-icon-144x144.png">
+		<meta name="theme-color" content="#ffffff">
+		<link rel="stylesheet" href="assets/css/glob.css" />
+		<style>
+			/* Style the tab */
+			.tab {
+				overflow: auto;
+				border-bottom: 3px solid #00569f;
+				display: flex;
+			}
+
+			/* Style the buttons that are used to open the tab content */
+			.tab input.tab-links {
+				color: #00569f !important;
+				background-color: inherit;
+				float: left;
+				border: none;
+				outline: none;
+				cursor: pointer;
+				padding: 14px 16px;
+				transition: 0.3s;
+				box-shadow: inherit;
+				border-radius: 5px 5px 0px 0px;
+			}
+
+			/* Change background color of buttons on hover */
+			.tab input.tab-links:hover {
+				color: #fff !important;
+				background-color: #3F75C2;
+			}
+
+			/* Create an active/current tablink class */
+			.tab input.tab-links.active {
+				color: #fff !important;
+				background-color: #00569f;
+			}
+
+			/* Style the tab content */
+			.tab-content {
+				padding: 6px 12px;
+				border: 1px solid #ccc;
+				border-top: none;
+			}
+			.tab-content {
+				animation: fadeEffect .5s; /* Fading effect takes 1 second */
+			}
+
+			/* Go from zero to full opacity */
+			@keyframes fadeEffect {
+				from {opacity: 0;}
+				to {opacity: 1;}
+			}
+			@media screen and (max-width: 736px) {
+				input[type="button"], input[type="submit"], input[type="reset"], button, .button {
+					letter-spacing: 2px;
+					display: inline-block;
+					padding: 1em 0 1em 0;
+					width: initial;
+				}
+			}
+		</style>
+	</head>
+	<body class="homepage is-preload">
+		<div id="page-wrapper">
+			<!-- Header -->
+				<section id="header">
+					<div class="container">
+						<!-- Logo -->
+							<h1 id="logo">
+								<a href="./index.html">
+									<img class="logo-img" src="./images/logo.png" alt="오리진로고">
+								</a>
+								<p class="logo-text text-origin-blue">Industrial Automation</p>
+							</h1>
+
+						<!-- Nav -->
+							<nav id="nav">
+								<a href="./index.html">
+									<img class="logo-img" src="./images/logo.png" alt="오리진로고">
+								</a>
+
+								<ul>
+									<li><a class="icon solid fa-home" href="./index.html"><span>회사 소개</span></a></li>
+									<li>
+										<a href="#" class="icon fa-chart-bar"><span>대분류 1</span></a>
+										<ul>
+											<li><a href="#">중분류 1</a></li>
+											<li><a href="#">중분류 2</a></li>
+											<li><a href="#">중분류 3</a></li>
+											<li>
+												<a href="#">중분류 4 ▸</a>
+												<ul>
+													<li><a href="#">소분류  1</a></li>
+													<li><a href="#">소분류  2</a></li>
+													<li><a href="#">소분류  3</a></li>
+												</ul>
+											</li>
+											<li><a href="#">중분류 5</a></li>
+										</ul>
+									</li>
+									<li>
+										<a class="icon solid fa-cog" href="./index.html"><span>대분류 2</span></a>
+									</li>
+									<li>
+										<a class="icon solid fa-retweet" href="./"><span>대분류 3</span></a>
+									</li>
+								</ul>
+							</nav>
+					</div>
+				</section>
+
+			<!-- Main -->
+			<section id="main">
+				<div class="container">
+					<div class="row">
+						<!-- Content -->
+							<div id="content" class="col-12 col-12-medium imp-medium">
+								<h2 class="text-left text-origin-blue font-weight-900">
+									시공사례
+								</h2>
+								<div>
+									<div class="tab">
+										<input type="button" class="tab-links active" onclick="changeTab(this);" data-target="contents-1" value="London">
+										<input type="button" class="tab-links" onclick="changeTab(this);" data-target="contents-2" value="Paris">
+										<input type="button" class="tab-links" onclick="changeTab(this);" data-target="contents-3" value="Tokyo">
+										<input type="button" class="tab-links" onclick="changeTab(this);" data-target="contents-4" value="Test1">
+										<input type="button" class="tab-links" onclick="changeTab(this);" data-target="contents-5" value="Test2">
+										<input type="button" class="tab-links" onclick="changeTab(this);" data-target="contents-6" value="Test3">
+									</div>
+									  
+									<!-- Tab content -->
+									<div class="tab-content" data-name="contents-1">
+										<h3>London</h3>
+										<p>London is the capital city of England.</p>
+									</div>
+									
+									<div class="tab-content dpn" data-name="contents-2">
+										<h3>Paris</h3>
+										<p>Paris is the capital of France.</p>
+									</div>
+									
+									<div class="tab-content dpn" data-name="contents-3">
+										<h3>Tokyo</h3>
+										<p>Tokyo is the capital of Japan.</p>
+									</div>
+									
+									<div class="tab-content dpn" data-name="contents-4">
+										<h3>Test1</h3>
+										<p>Test1 is the capital of Test1.</p>
+									</div>
+									
+									<div class="tab-content dpn" data-name="contents-5">
+										<h3>Test2</h3>
+										<p>Test2 is the capital of Test2.</p>
+									</div>
+									
+									<div class="tab-content dpn" data-name="contents-6">
+										<h3>Test3</h3>
+										<p>Test3 is the capital of Test3.</p>
+									</div>
+								</div>
+							</div>
+					</div>
+				</div>
+			</section>
+			<!-- Footer -->
+				<section id="footer">
+					<div class="container">
+						<!-- <header>
+							<h2>Questions or comments? <strong>Get in touch:</strong></h2>
+						</header> -->
+						<div class="row">
+							<div class="col-3 col-12-medium">
+								<img class="logo-img sm" src="./images/logo.png" alt="오리진로고">
+							</div>
+							<div class="col-9 col-12-medium">
+								<section>
+									<p>&lt;뭐라뭐라 설명할 내용이 있나요&gt;<br>이메일 주소 수정필요</p>
+									<div class="row">
+										<div class="col-12 col-12-small">
+											<ul class="icons">
+												<li class="icon solid fa-home copy-element">
+													<span class="copy-element" data-clipboard-action="copy" data-clipboard-text="경기 군포시 부곡동 1246 군포에이스더블유벨리 1027호" data-type="주소">경기 군포시 부곡동 1246 군포에이스더블유벨리 1027호</span>
+												</li>
+												<li class="icon solid fa-phone copy-element">
+													<span class="copy-element" data-clipboard-action="copy" data-clipboard-text="031-342-1202" data-type="전화번호">(031) 342-1202</span>
+												</li>
+												<li class="icon solid fa-fax copy-element">
+													<span class="copy-element" data-clipboard-action="copy" data-clipboard-text="031-342-1203" data-type="팩스번호">(031) 342-1203</span>
+												</li>
+												<li class="icon solid fa-envelope copy-element">
+													<span class="copy-element" data-clipboard-action="copy" data-clipboard-text="info@e-origin.co.kr" data-type="이메일">info@e-origin.co.kr</span>
+												</li>
+											</ul>
+										</div>
+									</div>
+								</section>
+							</div>
+						</div>
+					</div>
+				</section>
+		</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.dropotron.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+			<script src="assets/js/glob.js"></script>
+			<script src="assets/js/toastr.min.js"></script>
+			<script src="assets/js/clipboard.min.js"></script>
+			<script>
+				const changeTab = (elem) => {
+					let targetTab = $(elem).data("target");
+					$(".tab-content").addClass("dpn");
+					$(".tab-links").removeClass("active");
+
+					$(".tab-content[data-name='" + targetTab +  "']").removeClass("dpn");
+					$(".tab-links[data-target='" + targetTab +  "']").addClass("active");
+				}
+			</script>
+	</body>
+</html>
