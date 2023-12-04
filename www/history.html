@@ -10,27 +10,48 @@
 		<meta charset="utf-8" />
 		<meta lang="KO" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<link rel="stylesheet" href="assets/css/toastr.min.css" />
-		<link rel="apple-touch-icon" sizes="57x57" href="./images/favicon/apple-icon-57x57.png">
-		<link rel="apple-touch-icon" sizes="60x60" href="./images/favicon/apple-icon-60x60.png">
-		<link rel="apple-touch-icon" sizes="72x72" href="./images/favicon/apple-icon-72x72.png">
-		<link rel="apple-touch-icon" sizes="76x76" href="./images/favicon/apple-icon-76x76.png">
-		<link rel="apple-touch-icon" sizes="114x114" href="./images/favicon/apple-icon-114x114.png">
-		<link rel="apple-touch-icon" sizes="120x120" href="./images/favicon/apple-icon-120x120.png">
-		<link rel="apple-touch-icon" sizes="144x144" href="./images/favicon/apple-icon-144x144.png">
-		<link rel="apple-touch-icon" sizes="152x152" href="./images/favicon/apple-icon-152x152.png">
-		<link rel="apple-touch-icon" sizes="180x180" href="./images/favicon/apple-icon-180x180.png">
-		<link rel="icon" type="image/png" sizes="192x192"  href="./images/favicon/android-icon-192x192.png">
-		<link rel="icon" type="image/png" sizes="32x32" href="./images/favicon/favicon-32x32.png">
-		<link rel="icon" type="image/png" sizes="96x96" href="./images/favicon/favicon-96x96.png">
-		<link rel="icon" type="image/png" sizes="16x16" href="./images/favicon/favicon-16x16.png">
-		<link rel="manifest" href="./images/favicon/manifest.json">
+		<link rel="stylesheet" href="../assets/css/main.css" />
+		<link rel="stylesheet" href="../assets/css/toastr.min.css" />
+		<link rel="apple-touch-icon" sizes="57x57" href="../images/favicon/apple-icon-57x57.png">
+		<link rel="apple-touch-icon" sizes="60x60" href="../images/favicon/apple-icon-60x60.png">
+		<link rel="apple-touch-icon" sizes="72x72" href="../images/favicon/apple-icon-72x72.png">
+		<link rel="apple-touch-icon" sizes="76x76" href="../images/favicon/apple-icon-76x76.png">
+		<link rel="apple-touch-icon" sizes="114x114" href="../images/favicon/apple-icon-114x114.png">
+		<link rel="apple-touch-icon" sizes="120x120" href="../images/favicon/apple-icon-120x120.png">
+		<link rel="apple-touch-icon" sizes="144x144" href="../images/favicon/apple-icon-144x144.png">
+		<link rel="apple-touch-icon" sizes="152x152" href="../images/favicon/apple-icon-152x152.png">
+		<link rel="apple-touch-icon" sizes="180x180" href="../images/favicon/apple-icon-180x180.png">
+		<link rel="icon" type="image/png" sizes="192x192"  href="../images/favicon/android-icon-192x192.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="../images/favicon/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="96x96" href="../images/favicon/favicon-96x96.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="../images/favicon/favicon-16x16.png">
+		<link rel="manifest" href="../images/favicon/manifest.json">
 		<meta name="msapplication-TileColor" content="#ffffff">
-		<meta name="msapplication-TileImage" content="./images/favicon/ms-icon-144x144.png">
+		<meta name="msapplication-TileImage" content="../images/favicon/ms-icon-144x144.png">
 		<meta name="theme-color" content="#ffffff">
-		<link rel="stylesheet" href="assets/css/glob.css" />
+		<link rel="stylesheet" href="../assets/css/glob.css" />
 		<style>
+			.station-wrapper, .contact-wrapper {
+				margin-bottom: 1rem;
+			}
+
+			.pill-bus {
+				color: #ffffff;
+				font-weight: 900;
+				font-size: 1rem;
+				padding: 2px 10px;
+				border-radius: 12px;
+				white-space: nowrap;
+			}
+				.pill-bus-green {
+					background-color: #33CC99;
+				}
+				.pill-bus-blue {	
+					background-color: #0075C8;
+				}
+				.pill-bus-red {	
+					background-color: #FF0000;
+				}
 		</style>
 	</head>
 	<body class="homepage is-preload">
@@ -41,7 +62,7 @@
 						<!-- Logo -->
 							<h1 id="logo">
 								<a href="./index.html">
-									<img class="logo-img" src="./images/logo.png" alt="오리진로고">
+									<img class="logo-img" src="../images/logo.png" alt="오리진로고">
 								</a>
 								<p class="logo-text text-origin-blue">Industrial Automation</p>
 							</h1>
@@ -49,7 +70,7 @@
 						<!-- Nav -->
 							<nav id="nav">
 								<a href="./index.html">
-									<img class="logo-img" src="./images/logo.png" alt="오리진로고">
+									<img class="logo-img" src="../images/logo.png" alt="오리진로고">
 								</a>
 
 								<ul>
@@ -88,11 +109,11 @@
 					<div class="row">
 						<!-- Content -->
 							<div id="content" class="col-12 col-12-medium imp-medium">
-								<h2 class="text-left text-origin-blue font-weight-900" style="margin-bottom:.5rem;">
-									핵심 보유 기술
+								<h2 class="text-left text-origin-blue font-weight-900">
+									연혁
 								</h2>
 								<p>
-									<img src="./images/tech.png" alt="오리진 조직도" style="width:100%;">
+									<img src="../images/history.png" alt="오리진 연혁" style="width:100%;">
 								</p>
 							</div>
 					</div>
@@ -106,7 +127,7 @@
 						</header> -->
 						<div class="row">
 							<div class="col-3 col-12-medium">
-								<img class="logo-img sm" src="./images/logo.png" alt="오리진로고">
+								<img class="logo-img sm" src="../images/logo.png" alt="오리진로고">
 							</div>
 							<div class="col-9 col-12-medium">
 								<section>
@@ -137,14 +158,14 @@
 		</div>
 
 		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.dropotron.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
-			<script src="assets/js/glob.js"></script>
-			<script src="assets/js/toastr.min.js"></script>
-			<script src="assets/js/clipboard.min.js"></script>
+			<script src="../assets/js/jquery.min.js"></script>
+			<script src="../assets/js/jquery.dropotron.min.js"></script>
+			<script src="../assets/js/browser.min.js"></script>
+			<script src="../assets/js/breakpoints.min.js"></script>
+			<script src="../assets/js/util.js"></script>
+			<script src="../assets/js/main.js"></script>
+			<script src="../assets/js/glob.js"></script>
+			<script src="../assets/js/toastr.min.js"></script>
+			<script src="../assets/js/clipboard.min.js"></script>
 	</body>
 </html>
