@@ -31,6 +31,62 @@
 		<meta name="theme-color" content="#ffffff">
 		<link rel="stylesheet" href="assets/css/glob.css" />
 		<style>
+
+			.card {
+				border: 1px solid #00569f;
+				border-radius: 10px;
+				padding: 10px;
+				margin-top: 20px;
+				transition: 0.5s ease;
+				min-height: 5rem !important;
+			}
+
+			.card:hover {
+				box-shadow: 0px 0px 10px 0px #00569f;
+			}
+
+			.card.expandable {
+				background-repeat: no-repeat;
+				height: 0px;
+				transition: height 0.5s ease, background-position 0.5s ease, background-size 0.5s ease;
+				background-position: 100% 2.5rem;
+				position: relative;
+				isolation: isolate;
+				background-size: 40%;
+			}
+			.card.expandable:hover {
+				height: 25rem;
+				background-position: 50% 5rem;
+				background-size: 90%;
+			}
+			.card.expandable.expand-sm:hover {
+				height: 17rem;
+			}
+			.card.expandable.expand-md:hover {
+				height: 20rem;
+			}
+			.card.expandable.expand-lg:hover {
+				height: 30rem;
+			}
+
+			.card.expandable::after {
+				content: '';
+				position: absolute;
+				background: white;
+				z-index: -1;
+				inset: 0;
+				opacity: 0.6;
+				transition: opacity 0.5s ease;
+				border-radius: 9px;
+			}
+			.card.expandable:hover::after {
+				opacity: 0;
+			}
+
+			.text-sm {
+				font-size: 0.7em;
+			}
+
 			/* Style the tab */
 			.tab {
 				overflow: auto;
@@ -67,7 +123,7 @@
 			/* Style the tab content */
 			.tab-content {
 				padding: 6px 12px;
-				border: 1px solid #ccc;
+				border: 1px solid #00569f;
 				border-top: none;
 			}
 			.tab-content {
@@ -87,6 +143,17 @@
 					width: initial;
 				}
 			}
+
+
+			/* region Images */
+			#div-image-01 {
+				background-image: url("../images/temp1.png")
+			}
+			#div-image-02 {
+				background-image: url("../images/temp2.png")
+			}
+			/* endregion */
+			
 		</style>
 	</head>
 	<body class="homepage is-preload">
@@ -149,7 +216,7 @@
 								</h2>
 								<div>
 									<div class="tab">
-										<input type="button" class="tab-links active" onclick="changeTab(this);" data-target="contents-1" value="London">
+										<input type="button" class="tab-links active" onclick="changeTab(this);" data-target="contents-1" value="적재 자동화">
 										<input type="button" class="tab-links" onclick="changeTab(this);" data-target="contents-2" value="Paris">
 										<input type="button" class="tab-links" onclick="changeTab(this);" data-target="contents-3" value="Tokyo">
 										<input type="button" class="tab-links" onclick="changeTab(this);" data-target="contents-4" value="Test1">
@@ -159,8 +226,39 @@
 									  
 									<!-- Tab content -->
 									<div class="tab-content" data-name="contents-1">
-										<h3>London</h3>
-										<p>London is the capital city of England.</p>
+										<div>
+											<h3 class="text-origin-blue">XX 적재 자동화 
+												<span class="text-gray text-sm">ㅇㅇ산업</span>
+											</h3>
+											
+										</div>
+										<div>
+											<ul>
+												<li>
+													<span>△△ XX 선별라인</span>
+												</li>
+												<li>
+													<span>ㅇㅇ산업 AI XX선별기 中 적재 자동화 라인 설계/제작</span>
+												</li>
+											</ul>
+											<div class="row">
+												<div class="col-4 col-12-medium">
+													<h4>주요 적용부품</h4>
+													<div id="div-image-01" class="card expandable">
+														<span>가와사키 로봇 CP180L 3대</span>
+													</div>
+												</div>
+												<div class="col-8 col-12-medium">
+													<h4>시공 설명</h4>
+													<div id="div-image-02" class="card expandable expand-lg">
+														<span>AA BB CC XX 선별기 內 적재 자동화 시스템 제작 / 납품.</span>
+													</div>
+													<div class="card">
+														<span> ㅇㅇ산업과 협업하여 전국 BB 선별 라인에 적재 자동화 시스템 제작 / 납품 예정. </span>
+													</div>
+												</div>
+											</div>
+										</div>
 									</div>
 									
 									<div class="tab-content dpn" data-name="contents-2">
