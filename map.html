@@ -52,6 +52,28 @@
 				.pill-bus-red {	
 					background-color: #FF0000;
 				}
+
+				.station-info {
+					position: relative;
+					border: 1px solid;
+					display: flex;
+					top: -50px;
+					left: 50px;
+					background: white;
+					padding: 0px 10px;
+					border-radius: 15px;
+					font-size: 0.7rem;
+					flex-direction: column;
+					opacity: 1;
+					transition: .3s ease;
+				}
+				.station-info.hide {
+					opacity: 0;
+				}
+
+				.station-info > div {
+					line-height: 1rem;
+				}
 		</style>
 	</head>
 	<body class="homepage is-preload">
@@ -249,6 +271,66 @@
 			<script>
 				const LAT = 37.32671656100763;
 				const LNG = 126.94092850279565;
+				let zoomLevel = 17;
+
+				const stationMarkerList = [
+					{
+						name: "군포첨단산업단지",
+                        lat: 37.3266531,
+                        lng: 126.9392411,
+						visibleZoomLevel: [16, 17]
+					},
+					{
+						name: "군포첨단산업단지",
+						stationNumber: 26225,
+						direction: "한국복합물류 방면",
+                        lat: 37.3265742,
+                        lng: 126.9394828,
+						visibleZoomLevel: [18, 19, 20, 21]
+					},
+					{
+						name: "군포첨단산업단지",
+						stationNumber: 26227,
+						direction: "부곡지구입구 방면",
+                        lat: 37.3267352,
+                        lng: 126.9390187,
+						visibleZoomLevel: [18, 19, 20, 21]
+					},
+					{
+						name: "고랑치기근린공원",
+                        lat: 37.3272828,
+                        lng: 126.9412155,
+						visibleZoomLevel: [16, 17]
+					},
+					{
+						name: "고랑치기근린공원",
+						stationNumber: 26433,
+						direction: "군포첨단산업단지 방면",
+                        lat: 37.3273639,
+                        lng: 126.9410948,
+						visibleZoomLevel: [18, 19, 20, 21]
+					},
+					{
+						name: "고랑치기근린공원",
+						stationNumber: 26432,
+						direction: "공영주차장입구 방면",
+                        lat: 37.3271986,
+                        lng: 126.9413402,
+						visibleZoomLevel: [18, 19, 20, 21]
+					},
+				];
+				let markerList = [];
+
+				const drawBusStationMarker = (zoomLevel = 17) => {
+					//지도에서 지우기
+					for(let marker of markerList) {
+						if(marker.visibleZoomLevel.includes(zoomLevel)) {
+							marker.setMap(map);
+						} else {
+							marker.setMap(null);
+						}
+					}
+				}
 
 				const CheckMobile = () => {
 					return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
@@ -277,7 +359,7 @@
 					}
 				}
 
-				let map, marker;
+				let map, originMarker;
 				$(document).ready(() => {
 					let clipboard = new ClipboardJS(".copy-element");
 					clipboard.on("success", (e) => {
@@ -290,10 +372,11 @@
 					//'[{"x":126.9408267,"y":37.3271649},{"x":126.9408247,"y":37.3261316},{"x":126.9412599,"y":37.3261241},{"x":126.9412499,"y":37.3271692}]'
 					map = new naver.maps.Map('map', {
 						center: new naver.maps.LatLng(LAT, LNG),
-						zoom: 17
+						zoom: zoomLevel
 					});
 
-					marker = new naver.maps.Marker({
+					//회사 마커 지정
+					originMarker = new naver.maps.Marker({
 						position: new naver.maps.LatLng(LAT, LNG),
 						map: map,
 						icon: {
@@ -303,6 +386,55 @@
 							origin: new naver.maps.Point(0, 0),
 							anchor: new naver.maps.Point(37, 30)
 						}
+					});
+
+					//버스 정류장 마커 지정
+					for (let stationPosition of stationMarkerList) {
+						let stationInfo = $("<div class='station-info hide'></div>");
+						let stationInfoTitle = stationPosition.stationNumber ? stationPosition.name + " ["+ stationPosition.stationNumber +"]" : stationPosition.name;
+						stationInfo.append("<div><b>" + stationInfoTitle + "</b></div>")
+						if(stationPosition.direction)
+							stationInfo.append("<div>" + stationPosition.direction + "</div>")
+
+                        let marker = new naver.maps.Marker({
+                            position: new naver.maps.LatLng(stationPosition.lat, stationPosition.lng),
+                            map: map,
+                            icon: {
+                                // url: "./images/busstop.png",
+								content: "<img src='./images/busstop.png'>" + stationInfo[0].outerHTML,
+                                size: new naver.maps.Size(55, 55),
+                                scaledSize: new naver.maps.Size(55, 55),
+                                origin: new naver.maps.Point(0, 0),
+                                anchor: new naver.maps.Point(22, 55)
+                            }
+                        });
+						Object.assign(marker, {
+							name: stationPosition.name,
+							stationNumber: stationPosition.stationNumber ?? undefined,
+							direction: stationPosition.direction ?? undefined,
+							visibleZoomLevel: stationPosition.visibleZoomLevel
+						})
+
+						markerList.push(marker);
+						naver.maps.Event.addListener(marker, 'mouseover', (event) => {
+							console.log(event);
+							let target = $(event.originalEvent.target).children("div.station-info");
+							target.removeClass("hide")
+						});
+						naver.maps.Event.addListener(marker, 'mouseout', (event) => {
+							let target = $(event.originalEvent.target).children("div.station-info");
+							target.addClass("hide")
+						});
+						// console.log(marker);
+					}
+					
+					//최초 1회 정류장마커 업데이트
+					drawBusStationMarker(zoomLevel);
+
+					//zoomLevel 변경시 필요한 마커만 표시
+					naver.maps.Event.addListener(map, 'zoom_changed', (zoom) => {
+						zoomLevel = zoom;
+						drawBusStationMarker(zoomLevel);
 					});
 				})
 

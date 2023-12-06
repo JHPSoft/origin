@@ -13,3 +13,6 @@ Credits:
 
 	Temp Images:
 		Lorem Picsum (https://picsum.photos/)
+
+	Bus Stop Icon:
+		Icons8 (https://icons8.com/icon/M8to8q11r1v5/bus-stop)
