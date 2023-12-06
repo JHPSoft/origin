@@ -38,49 +38,31 @@
 				padding: 10px;
 				margin-top: 20px;
 				transition: 0.5s ease;
-				min-height: 5rem !important;
+				display: flex;
+			}
+			
+			.card-image {
+				width: 33.33333%;
+				margin-right: 25px;
+				border-radius: 7px;
+			}
+			.card-image > img {
+				width: 100%;
+				opacity: 1;
+
+				-webkit-transform: scale(1);
+				transform: scale(1);
+
+				-webkit-transition: transform .3s ease-in-out, opacity 0.3s ease;
+				transition: transform .3s ease-in-out, opacity 0.3s ease;
+			}
+			.card-image > img:hover {
+				-webkit-transform: scale(2);
+				transform: scale(2);
 			}
 
-			.card:hover {
-				box-shadow: 0px 0px 10px 0px #00569f;
-			}
-
-			.card.expandable {
-				background-repeat: no-repeat;
-				height: 0px;
-				transition: height 0.5s ease, background-position 0.5s ease, background-size 0.5s ease;
-				background-position: 100% 2.5rem;
-				position: relative;
-				isolation: isolate;
-				background-size: 40%;
-			}
-			.card.expandable:hover {
-				height: 25rem;
-				background-position: 50% 5rem;
-				background-size: 90%;
-			}
-			.card.expandable.expand-sm:hover {
-				height: 17rem;
-			}
-			.card.expandable.expand-md:hover {
-				height: 20rem;
-			}
-			.card.expandable.expand-lg:hover {
-				height: 30rem;
-			}
-
-			.card.expandable::after {
-				content: '';
-				position: absolute;
-				background: white;
-				z-index: -1;
-				inset: 0;
-				opacity: 0.6;
-				transition: opacity 0.5s ease;
-				border-radius: 9px;
-			}
-			.card.expandable:hover::after {
-				opacity: 0;
+			.card-contents:nth-child(2) {
+				width: 66.66666%;
 			}
 
 			.text-sm {
@@ -143,17 +125,6 @@
 					width: initial;
 				}
 			}
-
-
-			/* region Images */
-			#div-image-01 {
-				background-image: url("./images/temp1.png")
-			}
-			#div-image-02 {
-				background-image: url("./images/temp2.png")
-			}
-			/* endregion */
-			
 		</style>
 	</head>
 	<body class="homepage is-preload">
@@ -244,17 +215,25 @@
 											<div class="row">
 												<div class="col-4 col-12-medium">
 													<h4>주요 적용부품</h4>
-													<div id="div-image-01" class="card expandable">
-														<span>가와사키 로봇 CP180L 3대</span>
+													<div class="card">
+														<div class="card-contents card-image">
+															<img src="./images/temp1.png">
+															<!-- <div class="resizer"><i class="fas fa-search-plus"></i></div> -->
+														</div>
+														<span class="card-contents">가와사키 로봇 CP180L 3대</span>
 													</div>
 												</div>
 												<div class="col-8 col-12-medium">
 													<h4>시공 설명</h4>
-													<div id="div-image-02" class="card expandable expand-lg">
-														<span>AA BB CC XX 선별기 內 적재 자동화 시스템 제작 / 납품.</span>
+													<div class="card">
+														<div class="card-contents card-image">
+															<img src="./images/temp2.png">
+															<!-- <div class="resizer"><i class="fas fa-search-plus"></i></div> -->
+														</div>
+														<span class="card-contents">AA BB CC XX 선별기 內 적재 자동화 시스템 제작 / 납품.</span>
 													</div>
 													<div class="card">
-														<span> ㅇㅇ산업과 협업하여 전국 BB 선별 라인에 적재 자동화 시스템 제작 / 납품 예정. </span>
+														<span class="card-contents"> ㅇㅇ산업과 협업하여 전국 BB 선별 라인에 적재 자동화 시스템 제작 / 납품 예정. </span>
 													</div>
 												</div>
 											</div>
