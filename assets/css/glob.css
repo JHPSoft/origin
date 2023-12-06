@@ -2,6 +2,10 @@
 	display: none !important;
 }
 
+.pointer {
+	cursor: pointer !important;
+}
+
 .text-black {
 	color: #000000 !important;
 }
