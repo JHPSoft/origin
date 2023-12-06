@@ -10,3 +10,6 @@ Credits:
 	Other:
 		jQuery (jquery.com)
 		Responsive Tools (github.com/ajlkn/responsive-tools)
+
+	Temp Images:
+		Lorem Picsum (https://picsum.photos/)
