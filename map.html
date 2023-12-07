@@ -56,6 +56,9 @@
 			.marker-wrapper {
 				position: relative;
 			}
+			.btn-map-icon {
+				margin-left: 1rem;
+			}
 
 			.station-info {
 				position: absolute;
@@ -69,7 +72,7 @@
 				font-size: 0.7rem;
 				flex-direction: column;
 				opacity: 1;
-				transition: .3s ease;
+				transition: opacity .5s ease, box-shadow .5s ease;
 				width: max-content;
 			}
 			.station-info.hide {
@@ -170,7 +173,10 @@
 														<p class="font-weight-500 text-black">
 															<div class="station-wrapper">
 																<div class="font-weight-500 text-black">
-																	• 군포첨단산업단지
+																	• 군포첨단산업단지 
+																	<span class="btn-map-icon pointer" onclick="showStation_2()" title="지도에서 보기">
+																		<i class="fas fa-map-marked"></i>
+																	</span>
 																</div>
 																<span class="pill-bus pill-bus-green"><i class="fas fa-bus"></i> 22</span>
 																<span class="pill-bus pill-bus-green"><i class="fas fa-bus"></i> 31</span>
@@ -180,7 +186,10 @@
 															</div>
 															<div class="station-wrapper">
 																<div class="font-weight-500 text-black">
-																	• 고랑치기근린공원
+																	• 고랑치기근린공원 
+																	<span class="btn-map-icon pointer" onclick="showStation_1()" title="지도에서 보기">
+																		<i class="fas fa-map-marked"></i>
+																	</span>
 																</div>
 																<span class="pill-bus pill-bus-green"><i class="fas fa-bus"></i> 100</span>
 																<span class="pill-bus pill-bus-green"><i class="fas fa-bus"></i> 100-1</span>
@@ -443,6 +452,45 @@
 					});
 				})
 
+				/**
+				 * 고랑치기근린공원 위치보기
+				 */
+				const showStation_1 = () => {
+					map.setCenter(naver.maps.LatLng(37.3273338, 126.9411525));
+					map.setZoom(18);
+					for(let marker of markerList) {
+						if(marker?.name !== "고랑치기근린공원" || !marker.direction) {
+							continue;
+						}
+						let target = $(marker.eventTarget).children("div");
+						target.css({"box-shadow": "0px 0px 5px 1px #00569f"});
+						target.removeClass("hide");
+						setTimeout(() => {
+							target.css({"box-shadow": "0px 0px 0px 0px #00569f"});
+							target.addClass("hide");
+						}, 3000);
+					}
+				}
+				
+				/**
+				 * 군포첨단산업단지 위치보기
+				 */
+				const showStation_2 = () => {
+					map.setCenter(naver.maps.LatLng(37.3266982, 126.9397631));
+					map.setZoom(18);
+					for(let marker of markerList) {
+						if(marker?.name !== "군포첨단산업단지" || !marker.direction) {
+							continue;
+						}
+						let target = $(marker.eventTarget).children("div");
+						target.removeClass("hide");
+						target.css({"box-shadow": "0px 0px 5px 1px #00569f"});
+						setTimeout(() => {
+							target.css({"box-shadow": "0px 0px 0px 0px #00569f"});
+							target.addClass("hide");
+						}, 3000);
+					}
+				}
 			</script>
 	</body>
 </html>
