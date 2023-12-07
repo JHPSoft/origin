@@ -53,27 +53,34 @@
 					background-color: #FF0000;
 				}
 
-				.station-info {
-					position: relative;
-					border: 1px solid;
-					display: flex;
-					top: -50px;
-					left: 50px;
-					background: white;
-					padding: 0px 10px;
-					border-radius: 15px;
-					font-size: 0.7rem;
-					flex-direction: column;
-					opacity: 1;
-					transition: .3s ease;
-				}
-				.station-info.hide {
-					opacity: 0;
-				}
+			.marker-wrapper {
+				position: relative;
+			}
 
-				.station-info > div {
-					line-height: 1rem;
-				}
+			.station-info {
+				position: absolute;
+				border: 1px solid;
+				display: flex;
+				top: 5px;
+				left: 50px;
+				background: white;
+				padding: 0px 10px;
+				border-radius: 15px;
+				font-size: 0.7rem;
+				flex-direction: column;
+				opacity: 1;
+				transition: .3s ease;
+				width: max-content;
+			}
+			.station-info.hide {
+				opacity: 0;
+			}
+
+			.station-info > div {
+				line-height: 1rem;
+			}
+
+
 		</style>
 	</head>
 	<body class="homepage is-preload">
@@ -275,28 +282,6 @@
 
 				const stationMarkerList = [
 					{
-						name: "군포첨단산업단지",
-                        lat: 37.3266531,
-                        lng: 126.9392411,
-						visibleZoomLevel: [16, 17]
-					},
-					{
-						name: "군포첨단산업단지",
-						stationNumber: 26225,
-						direction: "한국복합물류 방면",
-                        lat: 37.3265742,
-                        lng: 126.9394828,
-						visibleZoomLevel: [18, 19, 20, 21]
-					},
-					{
-						name: "군포첨단산업단지",
-						stationNumber: 26227,
-						direction: "부곡지구입구 방면",
-                        lat: 37.3267352,
-                        lng: 126.9390187,
-						visibleZoomLevel: [18, 19, 20, 21]
-					},
-					{
 						name: "고랑치기근린공원",
                         lat: 37.3272828,
                         lng: 126.9412155,
@@ -318,6 +303,28 @@
                         lng: 126.9413402,
 						visibleZoomLevel: [18, 19, 20, 21]
 					},
+					{
+						name: "군포첨단산업단지",
+                        lat: 37.3266531,
+                        lng: 126.9392411,
+						visibleZoomLevel: [16, 17]
+					},
+					{
+						name: "군포첨단산업단지",
+						stationNumber: 26225,
+						direction: "한국복합물류 방면",
+                        lat: 37.3265742,
+                        lng: 126.9394828,
+						visibleZoomLevel: [18, 19, 20, 21]
+					},
+					{
+						name: "군포첨단산업단지",
+						stationNumber: 26227,
+						direction: "부곡지구입구 방면",
+                        lat: 37.3267352,
+                        lng: 126.9390187,
+						visibleZoomLevel: [18, 19, 20, 21]
+					}
 				];
 				let markerList = [];
 
@@ -417,7 +424,6 @@
 
 						markerList.push(marker);
 						naver.maps.Event.addListener(marker, 'mouseover', (event) => {
-							console.log(event);
 							let target = $(event.originalEvent.target).children("div.station-info");
 							target.removeClass("hide")
 						});
@@ -425,7 +431,6 @@
 							let target = $(event.originalEvent.target).children("div.station-info");
 							target.addClass("hide")
 						});
-						// console.log(marker);
 					}
 					
 					//최초 1회 정류장마커 업데이트
