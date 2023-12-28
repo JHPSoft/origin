@@ -15,6 +15,9 @@
 .text-origin-blue {
 	color: #00569f !important;
 }
+.text-white {
+	color: #ffffff;
+}
 
 .text-left {
 	text-align: left !important;
@@ -61,4 +64,34 @@
 }
 .font-weight-900 {
 	font-weight: 900;
+}
+
+.font-size-1rem {
+	font-size: 1rem !important;
+}
+
+
+.card {
+	border: 1px solid #00569f;
+	border-radius: 10px;
+	padding: 1em;
+}
+
+.card-image {}
+	.card-image > img {
+		width: 100%;
+	}
+.card-title {
+	font-weight: 900;
+	font-size: 1.5em;
+	line-height: 1.5em;
+}
+.card-contents {
+
+}
+.card-footer {
+	margin-top: 1em;
+    font-size: 0.8em;
+    line-height: 1.2em;
+    line-break: anywhere;
 }
