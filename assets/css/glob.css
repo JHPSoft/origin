@@ -1,6 +1,9 @@
 .dpn {
 	display: none !important;
 }
+.d-flex {
+	display: flex !important;
+}
 
 .pointer {
 	cursor: pointer !important;
@@ -14,6 +17,9 @@
 }
 .text-origin-blue {
 	color: #00569f !important;
+}
+.text-origin-dark-blue {
+	color: #003A6C !important;
 }
 .text-white {
 	color: #ffffff;
