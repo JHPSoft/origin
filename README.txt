@@ -16,3 +16,9 @@ Credits:
 
 	Bus Stop Icon:
 		Icons8 (https://icons8.com/icon/M8to8q11r1v5/bus-stop)
+
+	Unsplash:
+		- a group of people in a factory (https://unsplash.com/photos/bCgsKqFzUcg)
+		- man using computer (https://unsplash.com/photos/QASO5vwgVco)
+		- black and white solar panels (https://unsplash.com/photos/0GbrjL3vZF4)
+		- a factory filled with lots of orange machines (https://unsplash.com/photos/8gr6bObQLOI)
