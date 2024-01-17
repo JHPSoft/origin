@@ -2118,6 +2118,7 @@ input, select, textarea {
 		position: relative;
 		text-transform: uppercase;
 		background: url("../../images/unsplash/nuno-marques-0GbrjL3vZF4-unsplash.jpg");
+		background-position-y: 30%;
 		background-size: cover;
 		padding: 10em 0;
 	}
