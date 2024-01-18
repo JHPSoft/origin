@@ -31,6 +31,42 @@
 		<meta name="theme-color" content="#ffffff">
 		<link rel="stylesheet" href="assets/css/glob.css" />
 		<style>
+			td { padding: 0px !important;}
+			.td-tech-lg { width: 35%;}
+			.td-tech-lg > div { aspect-ratio: 1; background-color: aquamarine; background-image: url("./images/tech-circle.png"); background-size: cover; }
+			
+			.td-tech { width: 30%; }
+			.td-tech > div { aspect-ratio: 1; background-color: #003a6c; border-radius: 50%; justify-content: center; flex-flow: column; align-items: center; }
+
+			.td-tech-lg .tech-title { height: 41%; display: flex; justify-content: center; align-items: center; color: #fff; font-weight: 900; font-size: 2rem; }
+			.td-tech-lg .tech-contents { display: flex; justify-content: center; align-items: center; color: #ffffff; font-weight: 900; font-size: 1.2rem; text-align: center; line-height: 2rem; }
+
+			.td-tech .tech-title { color: #ffffff; font-weight: 900; font-size: 1.5rem; text-align: center; line-height: 2rem; }
+			.td-tech .tech-contents { color: #bdbdbd; font-weight: 900; font-size: 1.3rem; text-align: center; line-height: 1.5rem; }
+
+			@media screen and (max-width: 1280px) {
+				.td-tech-lg .tech-title { height: 31%; }
+			}
+			@media screen and (max-width: 736px) {
+				.td-tech-lg { width: 40%;}
+				.td-tech { width: 20%; }
+				.td-tech-lg .tech-contents { font-size: .9rem; line-height: 1.2rem;}
+				.td-tech .tech-title { font-size: .9rem; line-height: 1.2rem;}
+				.td-tech .tech-contents { font-size: .9rem; line-height: 1.2rem;}
+			}
+			@media screen and (max-width: 580px) {
+				.td-tech-lg .tech-contents { font-size: .9rem; line-height: .9rem; letter-spacing: -0.05rem;}
+				.td-tech { transform: scale(1.5)}
+				.td-tech .tech-title { font-size: .9rem; line-height: .9rem; letter-spacing: -0.05rem;}
+				.td-tech .tech-contents { font-size: .9rem; line-height: .9rem; letter-spacing: -0.05rem;}
+			}
+			@media screen and (max-width: 456px) {
+				.td-tech-lg .tech-contents { font-size: .7rem; line-height: .9rem; letter-spacing: -0.05rem;}
+				.td-tech .tech-title { font-size: .7rem; line-height: .9rem; letter-spacing: -0.05rem;}
+				.td-tech .tech-contents { font-size: .7rem; line-height: .9rem; letter-spacing: -0.05rem;}
+			}
+
+
 		</style>
 	</head>
 	<body class="homepage is-preload">
@@ -87,9 +123,93 @@
 								<h2 class="text-left text-origin-blue font-weight-900" style="margin-bottom:.5rem;">
 									핵심 보유 기술
 								</h2>
-								<p>
-									<img src="./images/tech.png" alt="오리진 조직도" style="width:100%;">
-								</p>
+								<div>
+									<table id="tech-table">
+										<tr>
+											<td class="td-tech-lg">
+												<div>
+													<div class="tech-title">
+														<div>R & D</div>
+													</div>
+													<div class="tech-contents">
+														<div>
+															연구개발 전담부서 운영<br>
+															전문인력양성 산학협약<br>
+															(중앙대학교)<br>
+															MP와 PC를 연계하여 G코드 등을<br>
+															사용한 수 있는 NC장비 개발
+														</div>
+													</div>
+												</div>
+											</td>
+											<td class="td-space"></td>
+											<td class="td-tech-lg">
+												<div>
+													<div class="tech-title">
+														<div>컨설팅</div>
+													</div>
+													<div class="tech-contents">
+														<div>
+															현장 경험을 바탕으로<br>
+															고객의 요구를 반영하는<br>
+															전문적인 컨설팅
+														</div>
+													</div>
+												</div>
+											</td>
+										</tr>
+										<tr>
+											<td class="td-space"></td>
+											<td class="td-tech">
+												<div class="d-flex">
+													<svg width="60%" height="60%" viewBox="0 0 406 324" fill="none" xmlns="http://www.w3.org/2000/svg">
+														<path d="M275.763 40H221.27C216.195 40 211.31 41.8984 207.567 45.3156L145.208 102.269C145.145 102.332 145.082 102.459 145.018 102.522C134.487 112.394 134.678 128.151 143.686 137.959C151.742 146.755 168.68 149.097 179.274 139.668C179.338 139.605 179.465 139.605 179.528 139.541L230.215 93.2195C234.338 89.4859 240.809 89.7391 244.552 93.8523C248.358 97.9656 248.041 104.357 243.917 108.154L227.36 123.278L319.725 198.077C321.565 199.595 323.214 201.241 324.737 202.949V80.5L290.1 45.9484C286.357 42.1516 281.155 40 275.763 40ZM345.1 80.6266V222.313C345.1 233.514 354.172 242.563 365.4 242.563H406V80.6266H345.1ZM375.55 222.313C369.967 222.313 365.4 217.757 365.4 212.188C365.4 206.62 369.967 202.063 375.55 202.063C381.132 202.063 385.7 206.62 385.7 212.188C385.7 217.757 381.132 222.313 375.55 222.313ZM0 242.5H40.6C51.8284 242.5 60.9 233.451 60.9 222.25V80.6266H0V242.5ZM30.45 202.063C36.0325 202.063 40.6 206.62 40.6 212.188C40.6 217.757 36.0325 222.313 30.45 222.313C24.8675 222.313 20.3 217.757 20.3 212.188C20.3 206.556 24.8675 202.063 30.45 202.063ZM306.974 213.834L212.262 137.137L193.231 154.539C174.39 171.688 145.526 170.043 128.715 151.755C111.65 133.15 112.982 104.357 131.506 87.3977L183.398 40H130.237C124.845 40 119.707 42.1516 115.9 45.9484L81.2 80.5V222.187H92.8091L150.22 274.014C167.602 288.126 193.167 285.468 207.314 268.129L207.441 268.002L218.796 277.811C228.882 286.037 243.79 284.455 251.974 274.394L271.893 249.967L275.319 252.752C284.01 259.776 296.824 258.51 303.866 249.777L309.892 242.373C316.997 233.641 315.665 220.921 306.974 213.834Z" fill="white"/>
+													</svg>
+													<div>
+														<div class="tech-title">
+															원스탭 솔루션
+														</div>
+														<div class="tech-contents">
+															고객 만족
+														</div>
+													</div>	
+												</div>
+											</td>
+											<td class="td-space"></td>
+
+										</tr>
+										<tr>
+											<td class="td-tech-lg">
+												<div>
+													<div class="tech-title">
+														<div>개발 & 설계</div>
+													</div>
+													<div class="tech-contents">
+														<div>
+															자동화 공정에 최적화된<br>
+															모션 프로그램 개발 & 설계
+														</div>
+													</div>
+												</div>
+											</td>
+											<td class="td-space"></td>
+											<td class="td-tech-lg">
+												<div>
+													<div class="tech-title">
+														<div>Robot</div>
+													</div>
+													<div class="tech-contents">
+														<div>
+															다관절 로봇을 이용한<br>
+															ROBOT 자동화 시스템 구축
+														</div>
+													</div>
+												</div>
+											</td>
+
+										</tr>
+									</table>
+								</div>
 							</div>
 					</div>
 				</div>
