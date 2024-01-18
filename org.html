@@ -31,6 +31,24 @@
 		<meta name="theme-color" content="#ffffff">
 		<link rel="stylesheet" href="assets/css/glob.css" />
 		<style>
+			#org-table tr { border-width: 0px; height: 10px;}
+			#org-table td { min-width: 5vw; padding: 0px; }
+			#org-table td.table-card { width: 30vw; padding: 0px; }
+			#org-table div.table-title { margin: 1vw; border-radius: 10px; background-color: #00569f; padding: 15px; font-size: 2rem; font-weight: 900; color: white;}
+			#org-table div.team-title { border: 1px solid #00569f; border-radius: 5px 5px 0px 0px; background-color: #00569f; padding: 5px 10px; color: white; font-weight: 600;}
+			#org-table div.team-exp { border: 1px solid #00569f; border-radius: 0px 0px 5px 5px; background-color: white; padding: 5px 10px; font-weight: 600; color: black;}
+
+			#org-table td.border { height: 5vh;}
+			#org-table td.border-top { border-top: 1px solid #00569f; }
+			#org-table td.border-left { border-left: 1px solid #00569f; }
+			#org-table td.border-right { border-right: 1px solid #00569f; }
+
+			@media screen and (max-width: 736px) {
+				#org-table div.table-title { font-size: 1.2rem; padding: 3px; border-radius: 5px;}
+				#org-table div.team-exp { letter-spacing: -0.5px; line-height: 1.2rem; word-spacing: 3.2px; }
+				#org-table td { min-width: 2vw; }
+			}
+
 		</style>
 	</head>
 	<body class="homepage is-preload">
@@ -87,9 +105,77 @@
 								<h2 class="text-left text-origin-blue font-weight-900">
 									조직도
 								</h2>
-								<p>
-									<img src="./images/org.png" alt="오리진 조직도" style="width:100%;">
-								</p>
+								<div>
+									<table id="org-table">
+										<tbody>
+											<tr>
+												<td></td>
+												<td></td>
+												<td></td>
+												<td colspan="2">
+													<div class="table-title text-center">대표 이사</div>
+												</td>
+												<td></td>
+												<td></td>
+												<td></td>
+											</tr>
+											<tr>
+											</tr>
+											<tr>
+												<td></td>
+												<td></td>
+												<td></td>
+												<td class="border border-right"></td>
+												<td></td>
+												<td></td>
+												<td></td>
+												<td></td>
+											</tr>
+											<tr>
+												<td></td>
+												<td class="border border-left border-top"></td>
+												<td class="border border-top"></td>
+												<td class="border border-right border-top"></td>
+												<td class="border border-top"></td>
+												<td class="border border-top"></td>
+												<td class="border border-top border-right"></td>
+												<td></td>
+											</tr>
+											<tr></tr>
+											<tr>
+												<td class="table-card" colspan="2">
+													<div class="team-title text-center">
+														총무
+													</div>
+													<div class="team-exp">
+														총무, 회계, 구매 관리
+													</div>
+												</td>
+												<td></td>
+												<td class="table-card" colspan="2">
+													<div class="team-title text-center">
+														FA 영업부
+													</div>
+													<div class="team-exp">
+														자동화 부품<br/>
+														서보, 로봇 및 비전 등 영업부서
+													</div>
+												</td>
+												<td></td>
+												<td class="table-card" colspan="2">
+													<div class="team-title text-center">
+														R&D
+													</div>
+													<div class="team-exp">
+														국가기술개발과제 연구수행<br>
+														자동화 모션 프로그램 및 시스템 개발<br>
+														공장, 로봇 자동화 프로그램 개발
+													</div>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
 							</div>
 					</div>
 				</div>
