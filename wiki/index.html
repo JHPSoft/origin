@@ -32,9 +32,9 @@
 		<link rel="stylesheet" href="../assets/css/glob.css" />
 		<style>
 			html, body, #main { height: 100%; padding: 0px; margin: 0px; }
+			#main { overflow: auto;}
 			#search-logo { padding-top: calc(30vh - 4rem); margin-bottom: 10vh; align-content: center; justify-content: center; flex-wrap: wrap;}
 			#search-logo .search-log-sub { height: 3rem; font-size: 3rem; line-height: 3rem; margin-top: 1rem; font-weight: 900;}
-			#search-area { height: 70vh; }
 			#search-input-container { position: relative; display: inline-block; width: 100%;}
 			#search-input-container > input { width: 100%; font-size: 2rem; border-radius: 2rem; border: 1px solid #ccc; padding-left: 3rem; font-family: "DSEG7ClassicBold"; color: #c70000; }
 			#search-input-container > #search-code-prefix { position: absolute; left: 1rem; font-size: 2rem; font-family: "DSEG7ClassicBold"; color: #c70000; top: 50%; transform: translateY(-50%); pointer-events: none; }
@@ -233,15 +233,21 @@
 				 * 저장중인 문서를 기반으로 sigma-version의 option들에 아이콘을 다시 그립니다.
 				 */
 				const updateSigmaSelector = (list) => {
-					console.log(list);
-					let test = $("#sigma-version > option")
-					test.each((idx, obj) => {
-						console.log(idx, obj.value, obj.text)
+					let options = $("#sigma-version > option")
+					options.each((idx, obj) => {
 						obj.text = obj.text.replaceAll(" ", "")
 						if(list.includes(obj.value)) {
 							obj.text += " "
 						}
 					})
+				}
+
+				const setLatestSearchDoc = (docName) => {
+					localStorage.setItem("latestSearch", docName);
+				}
+
+				const getLatestSearchDoc = () => {
+					return localStorage.getItem("latestSearch") ?? "";
 				}
 
 
@@ -265,11 +271,21 @@
 
 				const errorCodeInputKeydown = (event) => {
 					if(event.key === "Enter") {
-						if($("#sigma-version").val() === "") {
-							$("#sigma-version").addClass("danger");
+						let errorCode = $("#search-input").val().toUpperCase();
+						let sigmaVersion = $("#sigma-version");
+
+						if( errorCode === "FFF") {
+							$("#search-input").val("");
+							setSavedDocumentList([]);
+							updateSigmaSelector([]);
+							return;
+						}
+						if( sigmaVersion.val() === "") {
+							sigmaVersion.addClass("danger");
 							return cAlert(false, "", "시그마 버전을 선택해주세요.", { positionClass: 'toast-bottom-right' })
 						}
-						location.href = location.origin + "/wiki/?type=wiki&docs=S7M3&code=A." + $("#search-input").val().toUpperCase();
+						setLatestSearchDoc(sigmaVersion.val());
+						location.href = location.origin + "/wiki/?type=wiki&docs="+ sigmaVersion.val() +"&code=A." + errorCode;
 					}
 				}
 
@@ -329,6 +345,8 @@
 				const mainPagePhase = () => {
 					let docList = getSavedDocumentList();
 					updateSigmaSelector(docList);
+					let docName = getLatestSearchDoc();
+					$("#sigma-version").val(docName);
 				}
 
 
