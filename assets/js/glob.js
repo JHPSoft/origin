@@ -2,7 +2,7 @@
  * Custom Alert [toastr]
  *
  * (Type)
- * 0 (false): dnager
+ * 0 (false): danger
  * 1 (true):  success
  * 2: info
  * 3: warning
@@ -26,4 +26,15 @@ const cAlert = (type, title = "", message = "", option = {}) => {
         toastr.success(message, title, toastrOption);
     else
         toastr.error(message, title, toastrOption);
+}
+
+const getUrlParams = () => {
+    let urlParams = new URLSearchParams(location.search);
+    let params = {};
+
+    urlParams.forEach((value, key) => {
+        params[key] = value;
+    });
+
+    return params;
 }

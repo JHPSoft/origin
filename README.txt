@@ -22,3 +22,6 @@ Credits:
 		- man using computer (https://unsplash.com/photos/QASO5vwgVco)
 		- black and white solar panels (https://unsplash.com/photos/0GbrjL3vZF4)
 		- a factory filled with lots of orange machines (https://unsplash.com/photos/8gr6bObQLOI)
+
+	7Segment Font:
+		- DSEG7 Classic Bold(v0.46) (https://www.keshikan.net/fonts-e.html)

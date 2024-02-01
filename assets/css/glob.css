@@ -4,6 +4,9 @@
 .d-flex {
 	display: flex !important;
 }
+.d-inline {
+	display: inline-block !important;
+}
 
 .pointer {
 	cursor: pointer !important;
@@ -101,4 +104,13 @@
     font-size: 0.8em;
     line-height: 1.2em;
     line-break: anywhere;
+}
+
+@font-face {
+	font-family: 'DSEG7ClassicBold';
+	src: url('../webfonts/DSEG7Classic-Bold.woff2') format('woff2'),
+		url('../webfonts/DSEG7Classic-Bold.woff') format('woff'),
+		url('../webfonts/DSEG7Classic-Bold.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
 }

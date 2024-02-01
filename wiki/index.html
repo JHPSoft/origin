@@ -1,0 +1,288 @@
+<!DOCTYPE HTML>
+<!--
+	Strongly Typed by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>오리진 주식회사</title>
+		<meta charset="utf-8" />
+		<meta lang="KO" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="../assets/css/main.css" />
+		<link rel="stylesheet" href="../assets/css/toastr.min.css" />
+		<link rel="apple-touch-icon" sizes="57x57" href="../images/favicon/apple-icon-57x57.png">
+		<link rel="apple-touch-icon" sizes="60x60" href="../images/favicon/apple-icon-60x60.png">
+		<link rel="apple-touch-icon" sizes="72x72" href="../images/favicon/apple-icon-72x72.png">
+		<link rel="apple-touch-icon" sizes="76x76" href="../images/favicon/apple-icon-76x76.png">
+		<link rel="apple-touch-icon" sizes="114x114" href="../images/favicon/apple-icon-114x114.png">
+		<link rel="apple-touch-icon" sizes="120x120" href="../images/favicon/apple-icon-120x120.png">
+		<link rel="apple-touch-icon" sizes="144x144" href="../images/favicon/apple-icon-144x144.png">
+		<link rel="apple-touch-icon" sizes="152x152" href="../images/favicon/apple-icon-152x152.png">
+		<link rel="apple-touch-icon" sizes="180x180" href="../images/favicon/apple-icon-180x180.png">
+		<link rel="icon" type="image/png" sizes="192x192"  href="../images/favicon/android-icon-192x192.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="../images/favicon/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="96x96" href="../images/favicon/favicon-96x96.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="../images/favicon/favicon-16x16.png">
+		<link rel="manifest" href="../images/favicon/manifest.json">
+		<meta name="msapplication-TileColor" content="#ffffff">
+		<meta name="msapplication-TileImage" content="../images/favicon/ms-icon-144x144.png">
+		<meta name="theme-color" content="#ffffff">
+		<link rel="stylesheet" href="../assets/css/glob.css" />
+		<style>
+			html, body, #main { height: 100%; padding: 0px; margin: 0px; }
+			#search-logo { padding-top: calc(30vh - 4rem); margin-bottom: 10vh; align-content: center; justify-content: center; flex-wrap: wrap;}
+			#search-logo .search-log-sub { height: 3rem; font-size: 3rem; line-height: 3rem; margin-top: 1rem; font-weight: 900;}
+			#search-area { height: 70vh; }
+			#search-input-container { position: relative; display: inline-block; width: 100%;}
+			#search-input-container > input { width: 100%; font-size: 2rem; border-radius: 2rem; border: 1px solid #ccc; padding-left: 3rem; font-family: "DSEG7ClassicBold"; color: #c70000; }
+			#search-input-container > #search-code-prefix { position: absolute; left: 1rem; font-size: 2rem; font-family: "DSEG7ClassicBold"; color: #c70000; top: 50%; transform: translateY(-50%); pointer-events: none; }
+			@media screen and (max-width: 736px) {
+				#search-logo { padding-top: calc(20vh - 3rem); }
+				#search-logo .search-log-sub { height: 2rem; font-size: 2rem; line-height: 2rem; }
+				#search-area { height: 80vh;}
+			}
+			#main-wiki { margin-top: 3rem; }
+			#wiki-info { flex-direction: column; }
+			#wiki-info > h1#wiki-info-error-code { line-height: 4rem; font-size: 4rem; font-family: "DSEG7ClassicBold"; color: #c70000; }
+			#wiki-info > h3#wiki-info-error-name { line-height: 2.5rem; font-size: 2.5rem; margin-top: 1rem; margin-bottom: 1rem; text-align: left !important;}
+			#wiki-info > div > h4 { font-size: 1.5rem; line-height: 1.5rem; text-align: left !important;}
+		</style>
+	</head>
+	<body class="homepage is-preload">
+		<!-- Main -->
+		<section id="main">
+			<div class="container">
+				<div class="row">
+					<div id="main-search" class="col-12 dpn root-container" data-doc-type="search">
+						<div id="search-logo" class="text-center d-flex">
+							<img class="search-log-sub" src="../images/logo/yaskawa.png" alt="야스카와 로고">
+							<span class="search-log-sub text-origin-blue">서보팩 에러코드 wiki</span>
+						</div>
+						<div id="search-area" class="row">
+							<div class="off-3 col-6 off-0-small col-12-small">
+								<div>
+									<div class="d-inline">
+										<span>시그마 버전</span>
+										<select name="sigmaVersion" id="sigmaVersion">
+											<option value="">선택</option>
+											<option value="S7M3">Sigma-7(MECHATROLINK-Ⅲ)</option>
+										</select>
+									</div>
+								</div>
+								<div id="search-input-container">
+									<span id="search-code-prefix">A.</span>
+									<input id="search-input" type="text" oninput="checkErrorCodeInput(event);" onkeydown="errorCodeInputKeydown(event);">
+								</div>
+							</div>
+						</div>
+					</div>
+					<div id="main-wiki" class="col-12 dpn root-container" data-doc-type="wiki">
+						<div id="wiki-info" class="text-left d-flex ">
+							<h1 id="wiki-info-error-code"></h1>
+							<h3 id="wiki-info-error-name"></h3>
+							<div id="wiki-info-error-badge"></div>
+							<div>
+								<h4>
+									오류 상세
+								</h4>
+								<ul id="wiki-info-error-detail">
+								</ul>
+							</div>
+						</div>
+						<div id="wiki-solution" class="text-left d-flex">
+							<table>
+								<thead>
+									<tr>
+										<th>원인</th>
+										<th>확인 방법</th>
+										<th>대처 방법</th>
+									</tr>
+								</thead>
+								<tbody id="wiki-solution-table">
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Scripts -->
+			<script src="../assets/js/jquery.min.js"></script>
+			<script src="../assets/js/jquery.dropotron.min.js"></script>
+			<script src="../assets/js/browser.min.js"></script>
+			<script src="../assets/js/breakpoints.min.js"></script>
+			<script src="../assets/js/util.js"></script>
+			<!-- <script src="../assets/js/main.js"></script> -->
+			<script src="../assets/js/glob.js"></script>
+			<script src="../assets/js/toastr.min.js"></script>
+			<script src="../assets/js/clipboard.min.js"></script>
+            <!-- CryptoJS 라이브러리 로드 -->
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.2.0/crypto-js.min.js" integrity="sha512-a+SUDuwNzXDvz4XrIcXHuCf089/iJAoN4lmrXJg18XnduKK6YlDHNRalv4yd1N40OKI80tFidF+rqTFKGPoWFQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+            <script>
+				let params;
+
+				/**
+				 * 문서를 다운로드 받고 복호화작업을 수행합니다.
+				 * 
+				 * @return {String | Object}
+				 */
+                const getDocument = (sigmaVersion, secret) => {
+                    return new Promise((resolve, reject) => {
+                        fetch("../docs/encrypted/"+ sigmaVersion +".aes")
+                        .then((res) => {
+							if(res.ok) {
+                            	return res.text();
+							} else {
+								return reject({
+									message: "파일을 찾을 수 없습니다."
+								});
+							}
+                        })
+                        .then(res=> {
+							return resolve(decryptText(res, secret));
+                        })
+                        .catch(err => {
+							console.log(err);
+							console.log(err.message);
+							if(err.message === "Malformed UTF-8 data") {
+								return reject({
+									message: "비밀번호가 올바르지 않습니다."
+								});
+							} else {
+								console.error(err);
+								return reject({
+									message: "파일을 불러오는데 실패했습니다."
+								});
+							}
+                        })
+                    })
+                }
+
+				/**
+				 * 변환된 내용을 localStorage에 저장합니다.
+				 * 
+				 * @param {String} sigmaVersion 저장할 시그마버전 및 통신방식(ex. "S7M3")
+				 * @param {String} 저장할 문서의 내용
+				 */
+				const setDocument = (sigmaVersion, document) => {
+					if(typeof document === "Object") {
+						document = JSON.parse(document);
+					}
+					localStorage.setItem(sigmaVersion, document);
+				}
+
+				/**
+				 * localStorage에 저장했던 내용을 가져옵니다.
+				 */
+				const loadDocument = (sigmaVersion) => {
+					return JSON.parse(localStorage.getItem(sigmaVersion));
+				}
+
+				/**
+				 * localStorage에 저장중인 문서들의 목록을 가져옵니다.
+				 */
+				const getSavedDocumentList = () => {
+					return JSON.parse(localStorage.getItem("documentList")) ?? [];
+				}
+
+				/**
+				 * localStorage에 저장중인 문서들의 목록을 저장합니다.
+				 */
+				const setSavedDocumentList = (list) => {
+					localStorage.setItem("documentList", JSON.stringify(list));
+				}
+
+
+
+                // AES 암호화 함수
+                const encryptText = (text, key) => {
+                    var encrypted = CryptoJS.AES.encrypt(text, key);
+                    return encrypted.toString();
+                }
+
+                // AES 복호화 함수
+                const decryptText = (encryptedText, key) => {
+                    var decrypted = CryptoJS.AES.decrypt(encryptedText, key);
+                    return decrypted.toString(CryptoJS.enc.Utf8);
+                }
+
+				const checkErrorCodeInput = (event) => {
+					const inputValue = event.target.value;
+					event.target.value = inputValue.replace(/[^0-9a-fA-F]/g, '').substring(0,3);
+				}
+
+				const errorCodeInputKeydown = (event) => {
+					if(event.key === "Enter") {
+						location.href = location.origin + "/wiki/?type=wiki&docs=S7M3&code=A." + $("#search-input").val().toUpperCase();
+					}
+				}
+
+				const wikiSearchPhase = () => {
+					let data = loadDocument(params?.docs);
+					if(!data) {
+						cAlert(false, "", "문서를 찾을 수 없습니다.<br>다시 한 번 확인해주세요.<br><small>잠시 후 검색화면으도 이동합니다.</small>",
+							{
+								timeOut: 5000,
+								positionClass: 'toast-bottom-right'
+						})
+						return setTimeout(() => {
+							location.href = location.origin + "/wiki/";
+						}, 5000);
+					}
+
+					let errorData = data.find(element => element.code.toUpperCase() === params.code)
+					if(!errorData) {
+						cAlert(false, "", "에러 코드를 찾을 수 없습니다.<br>다시 한 번 확인해주세요.<br><small>잠시 후 검색화면으도 이동합니다.</small>",
+							{
+								timeOut: 5000,
+								positionClass: 'toast-bottom-right'
+						})
+						return setTimeout(() => {
+							location.href = location.origin + "/wiki/";
+						}, 5000);
+					}
+					$("#wiki-info-error-code").text(errorData.code.toUpperCase());
+					$("#wiki-info-error-name").text(errorData.name);
+					$("#wiki-info-error-badge").html("");
+					let errorDetailList = $("#wiki-info-error-detail");
+					errorDetailList.html("");
+					let wikiTable = $("#wiki-solution-table");
+					wikiTable.html("");
+					for(let errorDetail of errorData.errorDetail) {
+						errorDetailList.append("<li>"+ errorDetail +"</li>")
+					}
+					for(let errorSolution of errorData.resolutions) {
+						wikiTable.append($("<tr></tr>")
+							.append("<td>"+ errorSolution.reason +"</td>")
+							.append("<td>"+ errorSolution.check +"</td>")
+							.append("<td>"+ errorSolution.resolution +"</td>")
+						)
+					}
+				}
+
+				const mainPagePhase = () => {
+					let docList = getSavedDocumentList();
+					console.log(docList);
+				}
+
+
+				$(document).ready(() => {
+					params = getUrlParams();
+					let type = params?.type === "wiki"? "wiki" : "search" ?? "search"; // ?? 뒤는 혹시 몰라서 추가
+					$("#main div.root-container[data-doc-type='" + type + "']").removeClass("dpn");
+					if(type === "wiki") {
+						//wiki 검색인 경우 code를 검색 후 보여줌
+						wikiSearchPhase();
+					} else {
+						//그 외에는 검색 첫 화면으로 표시
+						mainPagePhase();
+					}
+				})
+
+            </script>
+	</body>
+</html>
