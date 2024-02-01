@@ -48,6 +48,12 @@
 			#wiki-info > h1#wiki-info-error-code { line-height: 4rem; font-size: 4rem; font-family: "DSEG7ClassicBold"; color: #c70000; }
 			#wiki-info > h3#wiki-info-error-name { line-height: 2.5rem; font-size: 2.5rem; margin-top: 1rem; margin-bottom: 1rem; text-align: left !important;}
 			#wiki-info > div > h4 { font-size: 1.5rem; line-height: 1.5rem; text-align: left !important;}
+			.doc-selector { color: #0157b8; padding: 0.5rem 1rem; border-radius: 0.6rem; font-family: 'Font Awesome 5 Free'; font-weight: 500; }
+			.doc-selector > option { font-family: 'Font Awesome 5 Free'; font-weight: 501; }
+			#search-option-container { position: relative; display: inline-block; width: 100%; margin-bottom: 2rem;}
+			#search-option-container > span { position: absolute; left: 1rem; font-size: 1rem; top: 1rem; transform: translateY(-50%); pointer-events: none; }
+			#search-option-container > select#sigma-version { width: 100%; font-size: 1rem; padding-top: 2rem; border-color: #ddd; transition: all .5s ease;}
+			#search-option-container > select#sigma-version.danger { border-color: #c70000 !important; }
 		</style>
 	</head>
 	<body class="homepage is-preload">
@@ -63,11 +69,14 @@
 						<div id="search-area" class="row">
 							<div class="off-3 col-6 off-0-small col-12-small">
 								<div>
-									<div class="d-inline">
+									<div id="search-option-container">
 										<span>시그마 버전</span>
-										<select name="sigmaVersion" id="sigmaVersion">
+										<select name="sigma-version" id="sigma-version" class="doc-selector" onchange="checkDocument(event);">
 											<option value="">선택</option>
-											<option value="S7M3">Sigma-7(MECHATROLINK-Ⅲ)</option>
+											<option value="S7M3" class="">Sigma-7(MECHATROLINK-Ⅲ) &#xf019;</option>
+											<option value="S7M4" class="">Sigma-7(MECHATROLINK-4) &#xf019;</option>
+											<option value="S7M5" class="">Sigma-7(MECHATROLINK-5) &#xf019;</option>
+											<option value="S7M6" class="">Sigma-7(MECHATROLINK-6) &#xf019;</option>
 										</select>
 									</div>
 								</div>
@@ -125,6 +134,30 @@
             <script>
 				let params;
 
+				const getDocumentPassword = () => {
+					let sigmaVersion = $("#sigma-version");
+					let pw = prompt('제공받은 비밀번호를 입력하세요.');
+					if(pw) {
+						getDocument(sigmaVersion.val(), pw)
+						.then(res => {
+							console.log("res", res)
+							setDocument(sigmaVersion.val(), res);
+							let list = getSavedDocumentList();
+							if(!list.includes(sigmaVersion.val())) {
+								list.push(sigmaVersion.val());
+								setSavedDocumentList(list);
+								updateSigmaSelector(list);
+							}
+						})
+						.catch(err => {
+							console.error(err)
+							cAlert(false, "", err.message, { positionClass: 'toast-bottom-right' });
+							sigmaVersion.val("");
+						})
+					} else {
+						sigmaVersion.val("");	
+					}
+				}
 				/**
 				 * 문서를 다운로드 받고 복호화작업을 수행합니다.
 				 * 
@@ -196,6 +229,21 @@
 					localStorage.setItem("documentList", JSON.stringify(list));
 				}
 
+				/**
+				 * 저장중인 문서를 기반으로 sigma-version의 option들에 아이콘을 다시 그립니다.
+				 */
+				const updateSigmaSelector = (list) => {
+					console.log(list);
+					let test = $("#sigma-version > option")
+					test.each((idx, obj) => {
+						console.log(idx, obj.value, obj.text)
+						obj.text = obj.text.replaceAll(" ", "")
+						if(list.includes(obj.value)) {
+							obj.text += " "
+						}
+					})
+				}
+
 
 
                 // AES 암호화 함수
@@ -217,7 +265,21 @@
 
 				const errorCodeInputKeydown = (event) => {
 					if(event.key === "Enter") {
+						if($("#sigma-version").val() === "") {
+							$("#sigma-version").addClass("danger");
+							return cAlert(false, "", "시그마 버전을 선택해주세요.", { positionClass: 'toast-bottom-right' })
+						}
 						location.href = location.origin + "/wiki/?type=wiki&docs=S7M3&code=A." + $("#search-input").val().toUpperCase();
+					}
+				}
+
+				const checkDocument = (e) => {
+					let target = $(event.target);
+					target.removeClass('danger');
+					if(target.val()) {
+						if(!getSavedDocumentList().includes(target.val())) {
+							getDocumentPassword();
+						}
 					}
 				}
 
@@ -266,7 +328,7 @@
 
 				const mainPagePhase = () => {
 					let docList = getSavedDocumentList();
-					console.log(docList);
+					updateSigmaSelector(docList);
 				}
 
 
