@@ -46,6 +46,7 @@
 			#wiki-info { flex-direction: column; }
 			#wiki-info > h1#wiki-info-error-code { line-height: 4rem; font-size: 4rem; font-family: "DSEG7ClassicBold"; color: #c70000; }
 			#wiki-info > h3#wiki-info-error-name { line-height: 2.5rem; font-size: 2.5rem; margin-top: 1rem; margin-bottom: 1rem; text-align: left !important;}
+			#wiki-info-error-badge { margin-bottom: 1rem;}
 			#wiki-info > div > h4 { font-size: 1.5rem; line-height: 1.5rem; text-align: left !important;}
 			.doc-selector { color: #0157b8; padding: 0.5rem 1rem; border-radius: 0.6rem; font-family: 'Font Awesome 5 Free'; font-weight: 500; }
 			.doc-selector > option { font-family: 'Font Awesome 5 Free'; font-weight: 501; }
@@ -319,9 +320,18 @@
 							location.href = location.origin + "/wiki/";
 						}, 5000);
 					}
+					console.log(errorData);
 					$("#wiki-info-error-code").text(errorData.code.toUpperCase());
 					$("#wiki-info-error-name").text(errorData.name);
-					$("#wiki-info-error-badge").html("");
+
+					// let [resettable, resettableClass] = [errorData.resettable ? "리셋가능" : "리셋불가", errorData.resettable ? "badge-success" : "badge-danger"];
+					// let resetMethod = errorData.stop === "Gr.1" ? "서보 모터는Pn001 = n.□□□X의 설정에 따라 정지합니다. (Default: 다이나믹 브레이크 정지)"
+					// 	:
+					// console.log({resettable, resettableClass})
+					// $("#wiki-info-error-badge").html("")
+					// .append("<span class=\"badge "+ resettableClass +"\">" + resettable + "</span>")
+					// .append("<span class=\"badge badge-info\">" + errorData.stop + "</span>");
+
 					let errorDetailList = $("#wiki-info-error-detail");
 					errorDetailList.html("");
 					let wikiTable = $("#wiki-solution-table");
