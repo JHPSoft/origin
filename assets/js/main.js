@@ -4,18 +4,24 @@
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
 
+/**
+ * 
+ * @returns [한국어 Path, 영어 Path, 현재 영어버전인지(t/f)]
+ */
 const urlPathName = () => {
 	let url = location.pathname;
 	let regex = /\/([^/]+)$/;
+	let EN_regex =/\/[eE][nN]/;
+	let enMatch = url.match(EN_regex);
 	let match = url.match(regex);
 	if (match) {
 		// 추출된 값
 		var lastPart = match[1]; // 정규식의 첫 번째 캡처 그룹
 	
 		console.log(lastPart); // "greet" 출력
-		return ["/" + lastPart, "/en/" + lastPart];
+		return ["/" + lastPart, "/en/" + lastPart, enMatch !== null];
 	} else {
-		return ["/", "/en/"]
+		return ["/", "/en/", enMatch !== null]
 	}
 }
 
@@ -24,6 +30,7 @@ const urlPathName = () => {
 		$body = $('body');
 
 	let urlPathNames = urlPathName();
+	let strMainPage = urlPathNames[2] ? "Main Page" : "메인 화면";
 	// Breakpoints.
 		breakpoints({
 			xlarge:  [ '1281px',  '1680px' ],
@@ -69,7 +76,7 @@ const urlPathName = () => {
 			$(
 				'<div id="navPanel">' +
 					'<nav>' +
-						'<a class="link depth-0" href="/" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">메인화면</a>' +
+						'<a class="link depth-0" href="/" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">'+ strMainPage +'</a>' +
 						$('#nav').navList() +
 					'</nav>' +
 					'<div id="nav-language-selector">' +
