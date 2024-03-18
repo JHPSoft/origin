@@ -4,11 +4,26 @@
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
 
-(function($) {
+const urlPathName = () => {
+	let url = location.pathname;
+	let regex = /\/([^/]+)$/;
+	let match = url.match(regex);
+	if (match) {
+		// 추출된 값
+		var lastPart = match[1]; // 정규식의 첫 번째 캡처 그룹
+	
+		console.log(lastPart); // "greet" 출력
+		return ["/" + lastPart, "/en/" + lastPart];
+	} else {
+		return ["/", "/en/"]
+	}
+}
 
+(function($) {
 	var	$window = $(window),
 		$body = $('body');
 
+	let urlPathNames = urlPathName();
 	// Breakpoints.
 		breakpoints({
 			xlarge:  [ '1281px',  '1680px' ],
@@ -57,6 +72,13 @@
 						'<a class="link depth-0" href="/" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">메인화면</a>' +
 						$('#nav').navList() +
 					'</nav>' +
+					'<div id="nav-language-selector">' +
+						'<span class="icon-menu"><i class="icon solid fas fa-language"></i></span>' +
+						'<span class="sub-menu">' +
+							'<span><a class="menu-item" href="' + urlPathNames[0] + '">한국어</a></span>' +
+							'<span><a class="menu-item" href="' + urlPathNames[1] + '">English</a></span>' +
+						'</span>' +
+					'</div>' + 
 				'</div>'
 			)
 				.appendTo($body)
