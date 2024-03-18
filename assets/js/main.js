@@ -46,7 +46,7 @@
 			$(
 				'<div id="navPanel">' +
 					'<nav>' +
-						'<a class="link depth-0" href="./" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">메인화면</a>' +
+						'<a class="link depth-0" href="/" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">메인화면</a>' +
 						$('#nav').navList() +
 					'</nav>' +
 				'</div>'
