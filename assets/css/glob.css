@@ -160,3 +160,32 @@
 	font-weight: normal;
 	font-style: normal;
 }
+
+#header-line {
+	background-color: #ffffff;
+	display: flex;
+	flex-direction: row-reverse;
+}
+#header-line > #language-selector{
+	display: inline-block;
+	margin-right: 1em;
+	margin-top: 1em;
+	line-height: 1em;
+	font-size: 1em;
+}
+#header-line > #language-selector > ul{
+	list-style: none;
+	margin: 0;
+}
+
+#language-selector > ul > li:hover > a {
+	border: 0 !important;
+}
+#language-selector > ul > li:hover > a:before {
+	color: #00569f;
+	transition: color .3s ease;
+}
+#language-selector > ul > li:hover > a > span {
+	color: #00569f;
+	transition: color .3s ease;
+}

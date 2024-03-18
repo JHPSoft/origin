@@ -7,7 +7,7 @@
 	$.fn.navList = function() {
 
 		var	$this = $(this);
-			$a = $this.find('a'),
+			$a = $this.find('a.menu-item'),
 			b = [];
 
 		$a.each(function() {

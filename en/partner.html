@@ -31,6 +31,21 @@
 		<meta name="theme-color" content="#ffffff">
 		<link rel="stylesheet" href="/assets/css/glob.css" />
 		<style>
+			.partner-logo {
+				max-height: 3em;
+				margin-bottom: 0.5em;
+				border-bottom: 1px solid #00569f;
+			}
+			.partner-logo > img {
+				height: 2em;
+    			margin-bottom: 1em;
+			}
+			.partner-link {
+				border-bottom: 0px solid !important;
+			}
+			.partner-link:hover {
+				color: #00569f;
+			}
 		</style>
 	</head>
 	<body class="homepage is-preload">
@@ -42,8 +57,8 @@
 							<li>
 								<a class="icon solid fas fa-language"><span> Language</span></a>
 								<ul>
-									<li><a class="menu-item" href="/items">한국어</a></li>
-									<li><a class="menu-item" href="/en/items">English</a></li>
+									<li><a class="menu-item" href="/partner">한국어</a></li>
+									<li><a class="menu-item" href="/en/partner">English</a></li>
 								</ul>
 							</li>
 						</ul>
@@ -61,7 +76,7 @@
 
 						<!-- Nav -->
 							<nav id="nav">
-								<a class="menu-item" href="/">
+								<a class="menu-item" href="/en/">
 									<img class="logo-img" src="/images/logo_type_2.png" alt="오리진로고">
 								</a>
 
@@ -69,22 +84,22 @@
 									<li>
 										<a class="icon solid far fa-building menu-item"><span>회사 소개</span></a>
 										<ul>
-											<li><a class="menu-item"  href="/greet">인사말</a></li>
-											<li><a class="menu-item"  href="/history">연혁</a></li>
-											<li><a class="menu-item"  href="/org">조직도</a></li>
-											<li><a class="menu-item"  href="/map">오시는 길</a></li>
+											<li><a class="menu-item"  href="/en/greet">인사말</a></li>
+											<li><a class="menu-item"  href="/en/history">연혁</a></li>
+											<li><a class="menu-item"  href="/en/org">조직도</a></li>
+											<li><a class="menu-item"  href="/en/map">오시는 길</a></li>
 										</ul>
 									</li>
 									<li>
 										<a class="icon solid fas fa-project-diagram menu-item"><span>사업 분야</span></a>
 										<ul>
-											<li><a class="menu-item"  href="/tech">핵심 보유 기술</a></li>
-											<li><a class="menu-item"  href="/portfolio">시공 사례</a></li>
-											<li><a class="menu-item"  href="/items">취급 아이템</a></li>
+											<li><a class="menu-item"  href="/en/tech">핵심 보유 기술</a></li>
+											<li><a class="menu-item"  href="/en/portfolio">시공 사례</a></li>
+											<li><a class="menu-item"  href="/en/items">취급 아이템</a></li>
 										</ul>
 									</li>
 									<li>
-										<a class="icon solid fas fa-handshake menu-item" href="/partner"><span>파트너십</span></a>
+										<a class="icon solid fas fa-handshake menu-item" href="/en/partner"><span>파트너십</span></a>
 									</li>
 								</ul>
 							</nav>
@@ -96,14 +111,65 @@
 				<div class="container">
 					<div class="row">
 						<!-- Content -->
-							<div id="content" class="col-12 col-12-medium imp-medium">
-								<h2 class="text-left text-origin-blue font-weight-900">
-									취급 아이템
-								</h2>
-								<p>
-									<img src="/images/items.png" alt="오리진 연혁" style="width:100%;">
-								</p>
+						<div id="content" class="imp-medium col-12">
+							<h2 class="text-left text-origin-blue font-weight-900" style="margin-bottom:.5rem;">
+								대리점
+							</h2>
+							<div class="row">
+								<div class="col-6 col-12-small">
+									<div class="card">
+										<div class="partner-logo">
+											<img src="/images/logo/yaskawa.png">
+										</div>
+										<p>
+											서보, 컨트롤러, 인버터, 로봇 취급<br>
+											서보(Servo), 산업용 로봇, 반도체용 로봇 및 관련 장비 수입 판매
+										</p>
+										<div class="text-right">
+											<a class="partner-link" href="https://www.yaskawa.co.kr/sub/sub08_01_b.php?boardid=parea&category=&sk=%EC%98%A4%EB%A6%AC%EC%A7%84&btnSearch.x=0&btnSearch.y=0" target="_blank">
+                                                <i class="fas fa-external-link-alt pointer"></i>
+                                            </a>
+										</div>
+									</div>								
+								</div>
+								<div class="col-6 col-12-small">
+									<div class="card">
+										<div class="partner-logo">
+											<img src="/images/logo/robostar.png">
+										</div>
+										<p>
+											직각좌표로봇, 수평다관절로봇, 로봇컨트롤러, 리니어로봇, FPD반송용로봇, 정밀스테이지 취급<br>
+											산업용 로봇, 정밀위치 제어장치, 정밀 전자부품 제조장비 제조
+										</p>
+										<div class="text-right">
+											<a class="partner-link" href="https://www.robostar.com/kr/company/location" target="_blank">
+                                                <i class="fas fa-external-link-alt pointer"></i>
+                                            </a>
+										</div>
+									</div>
+								</div>
 							</div>
+							<h2 class="text-left text-origin-blue font-weight-900" style="margin-bottom:.5rem; margin-top:2rem; ">
+								협력업체
+							</h2>
+							<div class="row">
+								<div class="col-6 col-12-small">
+									<div class="card">
+										<div class="partner-logo">
+											<img src="/images/logo/kawasaki.png">
+										</div>
+										<p>
+											산업용 기계기구장치 등의 제작, 판매, 수출입/ 가와사키 로봇의 판매, A/S, 로봇 주변 엔지니어링
+										</p>
+										<div class="text-right">
+											<a class="partner-link" href="https://kawasakirobotics.com/kr/" target="_blank">
+                                                <i class="fas fa-external-link-alt pointer"></i>
+                                            </a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
 					</div>
 				</div>
 			</section>

@@ -138,7 +138,7 @@ input, select, textarea {
 		transition: color 0.25s ease-in-out, border-bottom-color 0.25s ease-in-out;
 		color: #666;
 		text-decoration: none;
-		border-bottom: solid 1px #ddd;
+		/* border-bottom: solid 1px #ddd; */
 	}
 
 		a strong {
@@ -149,12 +149,12 @@ input, select, textarea {
 		}
 
 		a:hover {
-			color: #ed786a;
+			color: #00569f;
 			border-bottom-color: rgba(255, 255, 255, 0);
 		}
 
 			a:hover strong {
-				color: #ed786a;
+				color: #00569f;
 			}
 
 	strong, b {
@@ -1788,7 +1788,7 @@ input, select, textarea {
 		-webkit-appearance: none;
 		position: relative;
 		display: inline-block;
-		background: #ed786a;
+		background: #00569f;
 		color: #fff !important;
 		text-transform: uppercase;
 		border-radius: 4px;
@@ -1827,7 +1827,7 @@ input, select, textarea {
 		input[type="reset"]:active,
 		button:active,
 		.button:active {
-			background: #ed786a;
+			background: #00569f;
 		}
 
 		input[type="button"].alt,
@@ -1935,7 +1935,7 @@ input, select, textarea {
 		#header h1 {
 			font-family: 'Arvo';
 			font-weight: 700;
-			color: #ed786a;
+			color: #00569f;
 			text-shadow: 0.05em 0.075em 0 rgba(0, 0, 0, 0.1);
 			font-size: 3em;
 			letter-spacing: 13px;
@@ -2056,8 +2056,29 @@ input, select, textarea {
 			margin-top: 1.5em;
 			margin-left: -1em;
 		}
+			.dropotron.level-0.right:after {
+				content: '';
+				display: block;
+				position: absolute;
+				right: 1.25em;
+				top: calc(-0.75em + 1px);
+				border-left: solid 0.75em rgba(255, 255, 255, 0);
+				border-right: solid 0.75em rgba(255, 255, 255, 0);
+				border-bottom: solid 0.75em #fff;
+			}
+			.dropotron.level-0.right:before {
+				content: '';
+				display: block;
+				position: absolute;
+				right: 1.25em;
+				top: -0.75em;
+				border-left: solid 0.75em rgba(255, 255, 255, 0);
+				border-right: solid 0.75em rgba(255, 255, 255, 0);
+				border-bottom: solid 0.75em #ccc;
+			}
 
-			.dropotron.level-0:after {
+
+			.dropotron.level-0.left:after {
 				content: '';
 				display: block;
 				position: absolute;
@@ -2068,7 +2089,7 @@ input, select, textarea {
 				border-bottom: solid 0.75em #fff;
 			}
 
-			.dropotron.level-0:before {
+			.dropotron.level-0.left:before {
 				content: '';
 				display: block;
 				position: absolute;
@@ -2102,7 +2123,7 @@ input, select, textarea {
 				-webkit-transition: color 0.25s ease-in-out, border-bottom-color 0.25s ease-in-out;
 				-ms-transition: color 0.25s ease-in-out, border-bottom-color 0.25s ease-in-out;
 				transition: color 0.25s ease-in-out, border-bottom-color 0.25s ease-in-out;
-				color: #ed786a;
+				color: #00569f;
 			}
 
 /* Features */

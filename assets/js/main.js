@@ -32,6 +32,14 @@
 			hideDelay: 350
 		});
 
+		$('#language-selector > ul').dropotron({
+			mode: 'fade',
+			noOpenerFade: true,
+			hoverDelay: 150,
+			hideDelay: 350,
+			alignment: 'right',
+			offsetX: 500
+		});
 	// Nav.
 
 		// Title Bar.
