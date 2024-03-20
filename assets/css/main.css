@@ -1643,14 +1643,14 @@ input, select, textarea {
 
 		ul.icons > li {
 			position: relative;
-			padding: 2em 0 0 3em;
+			padding: 1em 0 0 3em;
 			margin: 0;
 		}
 
 			ul.icons > li:before {
 				position: absolute;
 				left: 0;
-				top: 2.6em;
+				top: 1.3em;
 				display: block;
 				font-size: 0.8em;
 				background: #878787;
@@ -2256,7 +2256,7 @@ input, select, textarea {
 		overflow: hidden;
 		border-top: solid 2px #e5e5e5;
 		background: #f0f0f0;
-		padding: 6em 0 8em 0;
+		padding: 2em 0 1em 0;
 	}
 
 		#footer form input[type="text"],
@@ -2277,6 +2277,10 @@ input, select, textarea {
 
 		#footer h2 {
 			text-align: center;
+		}
+
+		#footer p {
+			margin-bottom: 1em;
 		}
 
 /* Copyright */
@@ -2369,7 +2373,7 @@ input, select, textarea {
 		/* Footer */
 
 			#footer {
-				padding: 4em 0;
+				padding: 1em 0;
 			}
 
 		/* Copyright */
