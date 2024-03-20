@@ -2157,10 +2157,10 @@ input, select, textarea {
 		/* box-shadow: inset 0px -8px 0px 0px #fff, inset 0px 8px 0px 0px #fff; */
 		position: relative;
 		text-transform: uppercase;
-		background: url("../../images/unsplash/nuno-marques-0GbrjL3vZF4-unsplash.jpg");
+		/* background: url("../../images/unsplash/nuno-marques-0GbrjL3vZF4-unsplash.jpg"); */
 		background-position-y: 30%;
 		background-size: cover;
-		padding: 10em 0;
+		padding: 0 0;
 	}
 
 		#banner p {
@@ -2349,7 +2349,7 @@ input, select, textarea {
 		/* Banner */
 
 			#banner {
-				padding: 8em 0;
+				padding: 0em 0;
 			}
 
 				#banner > .container {
