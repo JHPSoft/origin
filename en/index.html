@@ -220,28 +220,28 @@
 							<!-- 좌,우 슬라이드 버튼 -->
 							<div class="slide-control">
 								<div>
-									<label onclick="_scrollTo(4);" class="left"></label> <!-- for="slide06" -->
-									<label onclick="_scrollTo(0);" class="right"></label> <!-- for="slide02" -->
+									<label onclick="scrollSlide(4);" class="left"></label> <!-- for="slide06" -->
+									<label onclick="scrollSlide(0);" class="right"></label> <!-- for="slide02" -->
 								</div>
 								<div>
-									<label onclick="_scrollTo(5);" class="left"></label> <!-- for="slide01" -->
-									<label onclick="_scrollTo(1);" class="right"></label> <!-- for="slide03" -->
+									<label onclick="scrollSlide(5);" class="left"></label> <!-- for="slide01" -->
+									<label onclick="scrollSlide(1);" class="right"></label> <!-- for="slide03" -->
 								</div>
 								<div>
-									<label onclick="_scrollTo(0);" class="left"></label> <!-- for="slide02" -->
-									<label onclick="_scrollTo(2);" class="right"></label> <!-- for="slide04" -->
+									<label onclick="scrollSlide(0);" class="left"></label> <!-- for="slide02" -->
+									<label onclick="scrollSlide(2);" class="right"></label> <!-- for="slide04" -->
 								</div>
 								<div>
-									<label onclick="_scrollTo(1);" class="left"></label> <!-- for="slide03" -->
-									<label onclick="_scrollTo(3);" class="right"></label> <!-- for="slide05" -->
+									<label onclick="scrollSlide(1);" class="left"></label> <!-- for="slide03" -->
+									<label onclick="scrollSlide(3);" class="right"></label> <!-- for="slide05" -->
 								</div>
 								<div>
-									<label onclick="_scrollTo(2);" class="left"></label> <!-- for="slide04" -->
-									<label onclick="_scrollTo(4);" class="right"></label> <!-- for="slide06" -->
+									<label onclick="scrollSlide(2);" class="left"></label> <!-- for="slide04" -->
+									<label onclick="scrollSlide(4);" class="right"></label> <!-- for="slide06" -->
 								</div>
 								<div>
-									<label onclick="_scrollTo(3);" class="left"></label> <!-- for="slide05" -->
-									<label onclick="_scrollTo(5);" class="right"></label> <!-- for="slide01" -->
+									<label onclick="scrollSlide(3);" class="left"></label> <!-- for="slide05" -->
+									<label onclick="scrollSlide(5);" class="right"></label> <!-- for="slide01" -->
 								</div>
 							</div>
 				
@@ -437,7 +437,7 @@
 				}
 
 				let slideIdx = 0;
-				const _scrollTo = (idx) => {
+				function scrollSlide(idx) {
 					let screenSize =  $(window).width();
 					let screenLimit = screenSize < 737 ? 3 : 6;
 					slideIdx = ++idx % screenLimit;
@@ -446,12 +446,12 @@
 				}
 				let slideIntervalIdx;
 
-				const stopScroll = () => {
+				function stopScroll() {
 					clearInterval(slideIntervalIdx);
 				}
-				const resumeScroll = () => {
+				function resumeScroll() {
 					slideIntervalIdx = setInterval(() => {
-						_scrollTo(slideIdx);
+						scrollSlide(slideIdx);
 					}, 6000)
 				}
 			</script>
