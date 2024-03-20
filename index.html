@@ -160,7 +160,7 @@
 					<input type="radio" name="slide" id="slide04">
 					<input type="radio" name="slide" id="slide05">
 					<input type="radio" name="slide" id="slide06">
-					<div class="slidewrap">
+					<div class="slidewrap" onmouseover="stopScroll();" onmouseleave="resumeScroll();">
 		
 						<ul class="slidelist">
 							<!-- 슬라이드 영역 -->
@@ -221,28 +221,28 @@
 							<!-- 좌,우 슬라이드 버튼 -->
 							<div class="slide-control">
 								<div>
-									<label for="slide06" class="left"></label>
-									<label for="slide02" class="right"></label>
+									<label onclick="_scrollTo(4);" class="left"></label> <!-- for="slide06" -->
+									<label onclick="_scrollTo(0);" class="right"></label> <!-- for="slide02" -->
 								</div>
 								<div>
-									<label for="slide01" class="left"></label>
-									<label for="slide03" class="right"></label>
+									<label onclick="_scrollTo(5);" class="left"></label> <!-- for="slide01" -->
+									<label onclick="_scrollTo(1);" class="right"></label> <!-- for="slide03" -->
 								</div>
 								<div>
-									<label for="slide02" class="left"></label>
-									<label for="slide04" class="right"></label>
+									<label onclick="_scrollTo(0);" class="left"></label> <!-- for="slide02" -->
+									<label onclick="_scrollTo(2);" class="right"></label> <!-- for="slide04" -->
 								</div>
 								<div>
-									<label for="slide03" class="left"></label>
-									<label for="slide05" class="right"></label>
+									<label onclick="_scrollTo(1);" class="left"></label> <!-- for="slide03" -->
+									<label onclick="_scrollTo(3);" class="right"></label> <!-- for="slide05" -->
 								</div>
 								<div>
-									<label for="slide04" class="left"></label>
-									<label for="slide06" class="right"></label>
+									<label onclick="_scrollTo(2);" class="left"></label> <!-- for="slide04" -->
+									<label onclick="_scrollTo(4);" class="right"></label> <!-- for="slide06" -->
 								</div>
 								<div>
-									<label for="slide05" class="left"></label>
-									<label for="slide01" class="right"></label>
+									<label onclick="_scrollTo(3);" class="left"></label> <!-- for="slide05" -->
+									<label onclick="_scrollTo(5);" class="right"></label> <!-- for="slide01" -->
 								</div>
 							</div>
 				
@@ -434,9 +434,7 @@
 					})
 
 					
-					setInterval(() => {
-						scrollTo(slideIdx);
-					}, 6000)
+					resumeScroll();
 				})
 
 				const goToArticle = (url) => {
@@ -444,10 +442,20 @@
 				}
 
 				let slideIdx = 0;
-				const scrollTo = (idx) => {
+				const _scrollTo = (idx) => {
 					slideIdx = ++idx % 6;
 					$('input[name="slide"]').removeAttr("checked"); 
 					$('input[name="slide"]').eq(slideIdx).attr("checked", true);
+				}
+				let slideIntervalIdx;
+
+				const stopScroll = () => {
+					clearInterval(slideIntervalIdx);
+				}
+				const resumeScroll = () => {
+					slideIntervalIdx = setInterval(() => {
+						_scrollTo(slideIdx);
+					}, 6000)
 				}
 			</script>
 	</body>
