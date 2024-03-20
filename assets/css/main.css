@@ -2688,7 +2688,7 @@ input, select, textarea {
 		/* Banner */
 
 			#banner {
-				padding: 5em 0;
+				/* padding: 5em 0; */
 			}
 
 				#banner > .container {
