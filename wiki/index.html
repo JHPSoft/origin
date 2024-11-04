@@ -270,7 +270,6 @@
 					if(event.key === "Enter") {
 						let errorCode = $("#search-input").val().toUpperCase();
 						let sigmaVersion = $("#sigma-version");
-
 						if( errorCode === "FFF") {
 							$("#search-input").val("");
 							setSavedDocumentList([]);
@@ -282,7 +281,7 @@
 							return cAlert(false, "", "시그마 버전을 선택해주세요.", { positionClass: 'toast-bottom-right' })
 						}
 						setLatestSearchDoc(sigmaVersion.val());
-						location.href = location.origin + "/wiki/?type=wiki&docs="+ sigmaVersion.val() +"&code=A." + errorCode;
+						location.href = location.origin + location.pathname + "?type=wiki&docs="+ sigmaVersion.val() +"&code=A." + errorCode;
 					}
 				}
 
@@ -305,7 +304,7 @@
 								positionClass: 'toast-bottom-right'
 						})
 						return setTimeout(() => {
-							location.href = location.origin + "/wiki/";
+							location.href = location.origin + location.pathname;
 						}, 5000);
 					}
 
@@ -317,7 +316,7 @@
 								positionClass: 'toast-bottom-right'
 						})
 						return setTimeout(() => {
-							location.href = location.origin + "/wiki/";
+							location.href = location.origin + location.pathname;
 						}, 5000);
 					}
 					console.log(errorData);
